@@ -1,0 +1,695 @@
+@import "variables";
+@import "mixins";
+@import "fonts";
+@import "typography";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a,
+button,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: $font-family;
+  font-size: 100%;
+  color: $black;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.app-inner {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex: 0 0 auto;
+  padding: 56px 0;
+  border-top: 1px solid #ddd;
+
+  .information-list {
+    margin-top: 34px;
+  }
+}
+
+.footer-column_left {
+  flex: 1;
+  padding-right: 25px;
+}
+
+.depot-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.train {
+  width: 50px;
+  height: 50px;
+  background: $white;
+  border: 1px solid $black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: fixed;
+  z-index: 1;
+  bottom: 58px;
+  transition: all 250ms ease;
+  opacity: 0;
+  visibility: hidden;
+
+  &.shown {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover {
+    background: $blue;
+    border-color: $blue;
+
+    svg {
+      fill: $white;
+    }
+  }
+
+  svg {
+    transition: all 250ms ease;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+.footer-column {
+  &:first-child {
+    padding-top: 12px;
+  }
+
+  &:last-child {
+    display: flex;
+    margin-left: auto;
+    max-width: 600px;
+    width: 100%;
+    padding-left: 30px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    a {
+      color: $black;
+      display: inline-block;
+      text-decoration: none;
+      transition: all 250ms ease;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+
+    ul {
+      li {
+        margin-bottom: 14px;
+
+        a {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+.footer-link_large {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 20px;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+.footer-inner {
+  display: flex;
+}
+
+.footer-icon {
+  background: transparentize($blue, .8);
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  transition: all 250ms ease;
+
+  svg {
+    transition: all 250ms ease;
+  }
+
+  &:hover {
+    background: $blue;
+
+    svg {
+      fill: $white;
+    }
+  }
+}
+
+.logo {
+  display: inline-block;
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+header {
+  position: relative;
+
+  .logo {
+    flex: 1;
+    margin-right: 30px;
+  }
+
+  @include respond(640px) {
+    padding: 45px 0;
+  }
+
+  @include respond(0, 640px) {
+    padding: 25px 0 30px 0;
+  }
+
+  @include respond($mobile) {
+    min-height: 355px;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    @include respond(0, $mobile) {
+      background: rgba(0, 0, 0, 0.35);
+    }
+    @include respond($mobile) {
+      background: rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+.information-order {
+  @include respond(0, 637px) {
+    order: 2;
+  }
+}
+
+.header-inner {
+  @include respond($mobile) {
+    margin-bottom: 78px;
+  }
+
+  @include respond(0, $mobile) {
+    margin-bottom: 30px;
+  }
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 55px;
+  position: relative;
+
+  .open-consultation {
+    letter-spacing: 1px;
+    max-width: 280px;
+    height: 55px;
+
+    @include respond(0, $mobile) {
+      display: none;
+    }
+  }
+
+  .phone {
+    margin-bottom: 6px;
+  }
+
+  .information {
+    @include respond($mobile) {
+      margin: 0 62px 0 54px;
+    }
+    @include respond(640px, $mobile) {
+      margin: 0 45px;
+    }
+    @include respond(0, 640px) {
+      display: none;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    a {
+      color: $white;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 250ms ease;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+}
+
+.show-requisites {
+  height: 60px;
+  max-width: 275px;
+  width: 100%;
+}
+
+.header-title {
+  @include respond($mobile) {
+    font-size: 48px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 34px;
+  }
+  margin: 0;
+  color: $white;
+  line-height: 1;
+  font-weight: bold;
+  transform: translateX(-3px);
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.button {
+  padding: 0 10px;
+  line-height: 1.3;
+  width: 100%;
+  font-weight: 500;
+  transition: all 250ms ease;
+
+  &-white {
+    color: $white;
+    border: 1px solid $white;
+
+    &:hover {
+      background: $blue;
+      border-color: $blue;
+    }
+  }
+
+  &-blue {
+    color: $white;
+    background: $blue;
+    border: 1px solid $blue;
+
+    &:hover {
+      background: $white;
+      color: $blue;
+      border-color: $blue;
+    }
+  }
+}
+
+.no-touch {
+  .address-item {
+    &:hover {
+      box-shadow: none;
+
+      &:after {
+        background: $white;
+        box-shadow: 0 0 59px 0 rgba(0, 10, 16, 0.18);
+      }
+    }
+  }
+
+  .burger {
+    &-line {
+      transition: all 250ms ease;
+    }
+
+    &:hover {
+      .burger-line {
+        &:nth-child(1) {
+          width: 26px;
+        }
+
+        &:nth-child(3) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.burger {
+  height: 16px;
+  width: 37px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  &-line {
+    display: block;
+    height: 2px;
+    background: $white;
+    border-radius: 3px;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+
+    &:nth-child(3) {
+      width: 26px;
+    }
+  }
+}
+
+.information-letter_space {
+  @include respond($mobile) {
+    letter-spacing: 1.28px;
+  }
+}
+
+.information-scale {
+  svg {
+    transform: scale(1, 1);
+  }
+}
+
+.container-justify {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact-line {
+  border-bottom: 2px solid $gray;
+  padding-bottom: 34px;
+
+  @include respond($mobile) {
+    margin-bottom: 62px;
+  }
+
+  @include respond(0, $mobile) {
+    margin-bottom: 30px;
+  }
+}
+
+.information-list {
+  display: flex;
+  flex-direction: column;
+
+  .information-item {
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+}
+
+.information-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 34px;
+
+  @include respond($mobile) {
+    grid-row-gap: 10px;
+  }
+
+  @include respond(0, $mobile) {
+    grid-row-gap: 18px;
+  }
+
+  .information-item {
+    a {
+      @include respond($mobile) {
+        font-size: 20px;
+      }
+      @include respond(0, $mobile) {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.fill-blue {
+  fill: $blue;
+}
+
+.information-item {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+
+  .information-item_link {
+    text-decoration: none;
+    color: $black;
+    transition: color 250ms ease;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  .svg-icon {
+    margin-right: 22px;
+  }
+}
+
+.svg-icon {
+  fill: $blue;
+}
+
+.phone-icon {
+  transform: rotate(-90deg);
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+h2 {
+  @include respond($mobile) {
+    font-size: 36px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 26px;
+  }
+  color: $black;
+  font-weight: bold;
+  line-height: 1.333;
+  margin: 0;
+}
+
+.page-content {
+  @include respond($mobile) {
+    padding-top: 124px;
+  }
+  @include respond(0, $mobile) {
+    padding-top: 40px;
+  }
+}
+
+#map {
+  width: 100%;
+  background: #f2f2f2;
+  margin-bottom: 40px;
+
+  @include respond($mobile) {
+    height: 550px;
+    margin-top: 45px;
+  }
+  @include respond(0, $mobile) {
+    height: 300px;
+    margin-top: 30px;
+  }
+}
+
+.contact-list_title {
+  font-size: 29px;
+  color: $black;
+  line-height: 1.655;
+  margin-bottom: 28px;
+}
+
+.address-list {
+  margin-bottom: 180px;
+}
+
+.address-schedule {
+  svg {
+    margin-right: 10px;
+  }
+}
+
+.address-map {
+  padding-right: 34px;
+
+  svg {
+    margin-right: 4px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $black;
+    transition: all 250ms ease;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+.address-additional_item {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.address-additional {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.address-phone {
+  @include respond(0, $mobile) {
+    margin-top: 15px;
+  }
+}
+
+.phone-list {
+  display: flex;
+  flex-direction: column;
+
+  a {
+    &:not(:last-child) {
+      @include respond($mobile) {
+        margin-bottom: 10px;
+      }
+      @include respond(0, $mobile) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+.address-item {
+  background: $white;
+  transition: box-shadow 250ms ease;
+  position: relative;
+
+  @include respond($mobile) {
+    padding: 32px 35px;
+  }
+
+  @include respond(0, $mobile) {
+    padding: 20px;
+  }
+
+  box-shadow: inset 0 0 0 1px $address-border;
+  margin-bottom: -1px;
+
+  .address-item_block {
+    display: flex;
+    position: relative;
+    z-index: 2;
+
+    @include respond($mobile) {
+      align-items: center;
+      padding-right: 30px;
+    }
+
+    @include respond(0, 640px) {
+      flex-direction: column;
+    }
+
+    img {
+      display: block;
+    }
+  }
+
+  .phone {
+    font-size: 18px;
+  }
+
+  .responsive-block {
+    display: flex;
+
+    @include respond(0, $mobile) {
+      flex-direction: column;
+    }
+  }
+
+  .address-info {
+
+  }
+
+  .responsive-block {
+    flex-wrap: wrap;
+  }
+
+  .responsive-block,
+  .address-info {
+    flex: 1;
+  }
+
+  .address-image {
+    @include respond($mobile) {
+      margin-right: 50px;
+    }
+
+    @include respond(0, 640px) {
+      margin-bottom: 15px;
+    }
+
+    @include respond(640px, $mobile) {
+      margin-right: 30px;
+    }
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 250ms ease;
+    z-index: 1;
+  }
+
+}
