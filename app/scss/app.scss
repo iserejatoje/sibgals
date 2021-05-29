@@ -725,13 +725,16 @@ h2 {
 
     @include respond(0, 640px) {
       flex-direction: column;
+
+      img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+      }
     }
 
     img {
       display: block;
-      max-width: 100%;
-      width: 100%;
-      height: auto;
     }
   }
 
