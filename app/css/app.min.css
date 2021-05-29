@@ -934,8 +934,9 @@ h2 {
       .contact-form .row .column {
         flex-direction: column;
         width: 100%; } }
-    .contact-form .row .column:not(:last-child) {
-      margin-bottom: 10px; }
+    @media only all and (min-width: 0) and (max-width: 679px) {
+      .contact-form .row .column:not(:last-child) {
+        margin-bottom: 10px; } }
     .contact-form .row:not(:last-child) {
       margin-bottom: 10px; }
   .contact-form textarea {

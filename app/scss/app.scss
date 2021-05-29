@@ -768,7 +768,9 @@ h2 {
         width: 100%;
       }
       &:not(:last-child) {
-        margin-bottom: 10px;
+        @include respond(0, 680px) {
+          margin-bottom: 10px;
+        }
       }
     }
 
