@@ -7,6 +7,7 @@ let paths = {
     scripts: {
         src: [
             'node_modules/jquery/dist/jquery.min.js',
+            baseDir + '/js/masked.min.js',
             baseDir + '/js/app.js'
         ],
         dest: baseDir + '/js',

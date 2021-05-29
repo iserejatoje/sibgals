@@ -8,10 +8,13 @@
     <meta name="keywords" content="сибгалс" />
     <meta name="description" content="сибгалс" />
     <title>Сибгалс - Контакты</title>
+    <link rel="preload" href="app/css/app.min.css" as="style" />
     <link rel="stylesheet" href="app/css/app.min.css">
     <script>document.documentElement.className += (("ontouchstart" in document.documentElement) ? 'touch' : 'no-touch');</script>
 </head>
 <body>
+
+
 
 <div id="app">
     <div class="app-inner">
@@ -230,7 +233,27 @@
                             <div class="title">Остались вопросы?</div>
                             <div class="annotation">Задайте их нашему специалисту</div>
                         </div>
-                        <div class="column"></div>
+                        <div class="column">
+                            <form action="" method="post">
+                                <input type="hidden" name="action" value="Остались вопросы?">
+                                <div class="form-inner">
+                                    <div class="row">
+                                        <div class="column">
+                                            <input type="text" name="firstname" placeholder="Ваше имя">
+                                        </div>
+                                        <div class="column">
+                                            <input type="tel" name="phone" placeholder="Телефон">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <textarea name="message" placeholder="Ваш вопрос"></textarea>
+                                    </div>
+                                    <div class="row form-bottom">
+                                        <button class="button button-submit">Получить консультацию</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
