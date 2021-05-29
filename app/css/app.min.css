@@ -893,7 +893,10 @@ h2 {
       .address-item .address-item_block {
         flex-direction: column; } }
     .address-item .address-item_block img {
-      display: block; }
+      display: block;
+      max-width: 100%;
+      width: 100%;
+      height: auto; }
   .address-item .phone {
     font-size: 18px; }
   .address-item .responsive-block {
