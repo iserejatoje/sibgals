@@ -35,6 +35,10 @@ body {
 
 .form-bottom {
   margin-top: 16px;
+
+  @include respond(0, 680px) {
+    flex-direction: column;
+  }
 }
 
 form {
@@ -113,7 +117,9 @@ footer {
 }
 
 .footer-column {
-
+  @include respond(0, 780px) {
+    text-align: center;
+  }
   &:nth-child(1) {
     @include respond($mobile) {
       padding-top: 12px;
@@ -124,6 +130,10 @@ footer {
       width: 50%;
     }
     @include respond(0, 780px) {
+      order: 3;
+      margin-top: 30px;
+    }
+    @include respond(780px, $mobile) {
       margin-bottom: 30px;
     }
   }
@@ -188,7 +198,7 @@ footer {
 
   @include respond(0, $mobile) {
     font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   &:hover {
@@ -197,9 +207,12 @@ footer {
 }
 
 .footer-inner {
+  display: flex;
   @include respond(780px) {
-    display: flex;
     flex-wrap: wrap;
+  }
+  @include respond(0, 780px) {
+    flex-direction: column;
   }
 }
 
@@ -210,8 +223,14 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
-  transition: all 250ms ease;
+  transition: background 250ms ease;
+
+  @include respond(780px) {
+    margin-top: 30px;
+  }
+  @include respond(0, 780px) {
+    margin-top: 15px;
+  }
 
   svg {
     transition: all 250ms ease;
@@ -429,6 +448,21 @@ button {
   }
 }
 
+.form-policy {
+  color: $white;
+  font-size: 14px;
+  line-height: 1.2;
+
+  @include respond(680px) {
+    padding-left: 32px;
+    padding-right: 64px;
+  }
+  @include respond(0, 680px) {
+    margin-top: 20px;
+  }
+
+}
+
 .no-touch {
   .address-item {
     &:hover {
@@ -518,6 +552,10 @@ button {
 .information-list {
   display: flex;
   flex-direction: column;
+
+  @include respond(0, 780px) {
+    align-items: center;
+  }
 
   .information-item {
     &:not(:last-child) {
@@ -659,12 +697,18 @@ h2 {
     height: 100%;
     flex: 1;
 
+    @include respond(0, $mobile) {
+      align-items: center;
+    }
+
     &:first-child {
       flex: 1;
     }
 
     &:last-child {
-      padding-left: 64px;
+      @include respond($mobile) {
+        padding-left: 64px;
+      }
     }
   }
 }
@@ -674,20 +718,34 @@ h2 {
     height: 55px;
     max-width: 280px;
   }
+
   input {
     width: 100%;
   }
+
   .column {
-    width: calc(50% - 6px);
+    @include respond(680px) {
+      width: calc(50% - 6px);
+    }
   }
 }
 
 .contact-form {;
   background: $blue;
 
+  @include respond(0, $mobile) {
+    padding: 50px 0;
+  }
+
   .contact-inner {
     display: flex;
-    height: 530px;
+
+    @include respond($mobile) {
+      height: 530px;
+    }
+    @include respond(0, $mobile) {
+      flex-direction: column;
+    }
   }
 
   form {
@@ -697,7 +755,22 @@ h2 {
 
   .row {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+
+    @include respond(0, 680px) {
+      flex-direction: column;
+    }
+
+    .column {
+      @include respond(0, 680px) {
+        flex-direction: column;
+        width: 100%;
+      }
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
 
     &:not(:last-child) {
       margin-bottom: 10px;
@@ -709,18 +782,32 @@ h2 {
   }
 
   .title {
-    font-size: 50px;
+    @include respond(0, $mobile) {
+      font-size: 36px;
+    }
+    @include respond($mobile) {
+      font-size: 50px;
+    }
     font-weight: bold;
     color: $white;
-    line-height: 1.4;
-    transform: translateY(-16px);
+    line-height: 1.2;
+    transform: translateY(-12px);
     letter-spacing: .2px;
+    margin-bottom: 8px;
   }
 
   .annotation {
+    @include respond(0, $mobile) {
+      margin-bottom: 25px;
+    }
     transform: translateY(-12px);
     font-weight: 500;
-    font-size: 28px;
+    @include respond(0, $mobile) {
+      font-size: 20px;
+    }
+    @include respond($mobile) {
+      font-size: 28px;
+    }
     color: $white;
     line-height: 1.357;
     letter-spacing: .6px;
