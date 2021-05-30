@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="keywords" content="сибгалс" />
     <meta name="description" content="сибгалс" />
-    <title>Сибгалс - Новости</title>
+    <title>Сибгалс - Карточка товара</title>
     <link rel="preload" href="app/css/app.min.css" as="style" />
     <link rel="stylesheet" href="app/css/app.min.css">
     <script>document.documentElement.className += (("ontouchstart" in document.documentElement) ? 'touch' : 'no-touch');</script>
@@ -37,17 +37,98 @@
                     </button>
                 </div>
 
-                <h1 class="header-title">Демонтаж металлолома</h1>
+                <h1 class="header-title">Алюминевый профиль</h1>
             </div>
         </header>
-        <div class="work-page">
+        <div class="product-page">
             <div class="container">
                 <div class="breadcrumbs">
                     <a href="#">Главная</a>
                     <svg width="11" height="11"><use xlink:href="app/images/sprite.svg#next"></use></svg>
-                    <a href="#">Выполненные работы</a>
+                    <a href="#">Каталог</a>
                     <svg width="11" height="11"><use xlink:href="app/images/sprite.svg#next"></use></svg>
-                    <span>Новости</span>
+                    <span>Алюминевый профиль</span>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="product-block">
+                    <div class="product-gallery">
+                        <div class="thumbnails">
+                            <a href="app/images/product-large.webp" class="active"><img src="app/images/product-thumbnail.webp" alt=""></a>
+                            <a href="app/images/product-large.webp"><img src="app/images/product-thumbnail.webp" alt=""></a>
+                            <a href="app/images/product-large.webp"><img src="app/images/product-thumbnail.webp" alt=""></a>
+                        </div>
+                        <div class="image-large">
+                            <div class="product-mark">В наличие 100ед.</div>
+                            <a class="product-image" href="app/images/product-large.webp" data-fancybox="product"><img src="app/images/product-large.webp" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="product-data">
+                        <div class="title">Алюминиевый профиль 12х25х2х1000 мм, из 2 миллиметрового аллюминия, 1 шт</div>
+                        <div class="annotation">Алюмний — элемент 13-й группы периодической таблицы химических элементов, третьего периода, с атомным номером 13. Относится к группе лёгких металлов</div>
+
+                        <div class="product-action">
+                            <div class="product-price"><span>100</span> <img width="18" height="23" src="app/images/ruble.webp" alt=""></div>
+                        </div>
+
+                        <div class="product-count">
+                            <div class="count-wrapper">
+                                <button class="minus" aria-label="Уменьшить количество товара"><svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="11px" height="1px">
+                                    <path fill-rule="evenodd"  fill="rgb(188, 188, 188)"
+                                          d="M-0.000,-0.000 L11.000,-0.000 L11.000,1.000 L-0.000,1.000 L-0.000,-0.000 Z"/>
+                                </svg></button>
+                                <input maxlength="3" minlength="1" type="number" class="product" value="1">
+                                <button class="plus" aria-label="Увеличить количество товара"><svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="11px" height="11px">
+                                    <path fill-rule="evenodd"  fill="rgb(188, 188, 188)"
+                                          d="M5.000,-0.000 L6.000,-0.000 L6.000,11.000 L5.000,11.000 L5.000,-0.000 Z"/>
+                                    <path fill-rule="evenodd"  fill="rgb(188, 188, 188)"
+                                          d="M-0.000,5.000 L11.000,5.000 L11.000,6.000 L-0.000,6.000 L-0.000,5.000 Z"/>
+                                </svg></button>
+                            </div>
+                            <button class="text-uppercase button button-blue">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <div class="container">
+                    <div class="contact-inner">
+                        <div class="column">
+                            <svg class="boat-image" width="420" height="560"><use xlink:href="app/images/sprite.svg#boat"></use></svg>
+                            <div class="title">Остались вопросы?</div>
+                            <div class="annotation">Задайте их нашему специалисту</div>
+                        </div>
+                        <div class="column">
+                            <form action="" method="post">
+                                <input type="hidden" name="action" value="Остались вопросы?">
+                                <div class="form-inner">
+                                    <div class="row">
+                                        <div class="column">
+                                            <input type="text" name="firstname" placeholder="Ваше имя">
+                                        </div>
+                                        <div class="column">
+                                            <input type="tel" name="phone" placeholder="Телефон">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <textarea name="message" placeholder="Ваш вопрос"></textarea>
+                                    </div>
+                                    <div class="row form-bottom">
+                                        <button class="button button-submit">Получить консультацию</button>
+                                        <span class="form-policy">Данные будут обработаны с вашего согласия</span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -165,9 +246,7 @@
     <div class="train"><svg width="26" height="26"><use xlink:href="app/images/sprite.svg#scroller"></use></svg></div>
 </div>
 
-<link rel="stylesheet" href="app/css/swiper.min.css">
 <link rel="stylesheet" href="app/css/funcybox.min.css">
-<script src="app/js/swiper.min.js"></script>
 <script src="app/js/app.min.js"></script>
 <script src="app/js/fancybox.min.js"></script>
 
