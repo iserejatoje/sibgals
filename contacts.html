@@ -14,12 +14,10 @@
 </head>
 <body>
 
-
-
 <div id="app">
     <div class="app-inner">
         <header>
-            <img class="header-image" srcset="app/images/mobile-contacts-bg.webp 1024w, app/images/contacts-bg.webp 2000w" src="app/images/contacts-bg.webp" alt="Контакты">
+            <img class="header-image" src="app/images/contacts-bg.webp" alt="Контакты">
 
             <div class="container">
 
@@ -42,10 +40,8 @@
                 <h1 class="header-title">Контакты</h1>
             </div>
         </header>
-
-        <div class="page-content contact-page">
+        <div class="page-content">
             <div class="container">
-
                 <div class="container-justify contact-line">
                     <div class="information-grid">
                         <div class="information-item">
@@ -67,13 +63,9 @@
                     </div>
                     <button class="button button-blue show-requisites text-uppercase">Посмотреть реквизиты</button>
                 </div>
-
                 <h2>Карта пунктов приёма</h2>
-
                 <div id="map"></div>
-
                 <div class="contact-list_title">Кемеровская область</div>
-
                 <div class="address-list">
                     <!---->
                     <div class="address-item">
@@ -226,36 +218,36 @@
 
                 </div>
             </div>
-            <div class="contact-form">
-                <div class="container">
-                    <div class="contact-inner">
-                        <div class="column">
-                            <svg class="boat-image" width="420" height="560"><use xlink:href="app/images/sprite.svg#boat"></use></svg>
-                            <div class="title">Остались вопросы?</div>
-                            <div class="annotation">Задайте их нашему специалисту</div>
-                        </div>
-                        <div class="column">
-                            <form action="" method="post">
-                                <input type="hidden" name="action" value="Остались вопросы?">
-                                <div class="form-inner">
-                                    <div class="row">
-                                        <div class="column">
-                                            <input type="text" name="firstname" placeholder="Ваше имя">
-                                        </div>
-                                        <div class="column">
-                                            <input type="tel" name="phone" placeholder="Телефон">
-                                        </div>
+        </div>
+        <div class="contact-form">
+            <div class="container">
+                <div class="contact-inner">
+                    <div class="column">
+                        <svg class="boat-image" width="420" height="560"><use xlink:href="app/images/sprite.svg#boat"></use></svg>
+                        <div class="title">Остались вопросы?</div>
+                        <div class="annotation">Задайте их нашему специалисту</div>
+                    </div>
+                    <div class="column">
+                        <form action="" method="post">
+                            <input type="hidden" name="action" value="Остались вопросы?">
+                            <div class="form-inner">
+                                <div class="row">
+                                    <div class="column">
+                                        <input type="text" name="firstname" placeholder="Ваше имя">
                                     </div>
-                                    <div class="row">
-                                        <textarea name="message" placeholder="Ваш вопрос"></textarea>
-                                    </div>
-                                    <div class="row form-bottom">
-                                        <button class="button button-submit">Получить консультацию</button>
-                                        <span class="form-policy">Данные будут обработаны с вашего согласия</span>
+                                    <div class="column">
+                                        <input type="tel" name="phone" placeholder="Телефон">
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                                <div class="row">
+                                    <textarea name="message" placeholder="Ваш вопрос"></textarea>
+                                </div>
+                                <div class="row form-bottom">
+                                    <button class="button button-submit">Получить консультацию</button>
+                                    <span class="form-policy">Данные будут обработаны с вашего согласия</span>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -413,8 +413,7 @@ form textarea {
   min-height: 100px; }
 
 footer {
-  flex: 0 0 auto;
-  border-top: 1px solid #ddd; }
+  flex: 0 0 auto; }
   @media only all and (min-width: 1024px) {
     footer {
       padding: 56px 0; } }
@@ -601,10 +600,10 @@ header {
     z-index: 1; }
     @media only all and (min-width: 0) and (max-width: 1023px) {
       header:before {
-        background: rgba(0, 0, 0, 0.35); } }
+        background: rgba(0, 0, 0, 0.55); } }
     @media only all and (min-width: 1024px) {
       header:before {
-        background: rgba(0, 0, 0, 0.15); } }
+        background: rgba(0, 0, 0, 0.55); } }
 
 @media only all and (min-width: 0) and (max-width: 636px) {
   .information-order {
@@ -671,7 +670,7 @@ header {
       font-size: 48px; } }
   @media only all and (min-width: 0) and (max-width: 1023px) {
     .header-title {
-      font-size: 34px; } }
+      font-size: 28px; } }
 
 .text-uppercase {
   text-transform: uppercase; }
@@ -858,11 +857,11 @@ h2 {
 
 @media only all and (min-width: 1024px) {
   .page-content {
-    padding-top: 124px; } }
+    margin-top: 124px; } }
 
 @media only all and (min-width: 0) and (max-width: 1023px) {
   .page-content {
-    padding-top: 40px; } }
+    margin-top: 40px; } }
 
 #map {
   width: 100%;
@@ -1278,3 +1277,110 @@ h2 {
         border-style: solid;
         border-width: 0 40px 40px 0;
         border-color: transparent #fff transparent transparent; } }
+
+@media only all and (min-width: 1024px) {
+  .breadcrumbs {
+    padding: 50px 0; } }
+
+@media only all and (min-width: 0) and (max-width: 1023px) {
+  .breadcrumbs {
+    padding: 25px 0; } }
+
+.breadcrumbs svg {
+  margin: 0 6px 0 2px; }
+
+.breadcrumbs span,
+.breadcrumbs a {
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #0c1b24;
+  display: inline-block;
+  letter-spacing: 1.5px; }
+
+.works-page {
+  background: #f9f9fa;
+  padding-bottom: 120px; }
+
+.grid {
+  display: grid;
+  padding-top: 12px; }
+  .grid-3 {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+    @media only all and (min-width: 1024px) {
+      .grid-3 {
+        grid-gap: 60px; } }
+    @media only all and (min-width: 0) and (max-width: 1023px) {
+      .grid-3 {
+        grid-gap: 30px; } }
+  .grid .card {
+    background: #fff;
+    transition: box-shadow 250ms ease; }
+    .grid .card:hover {
+      box-shadow: 0 0 19px 1px rgba(102, 102, 102, 0.2); }
+  @media only all and (min-width: 1024px) {
+    .grid .content {
+      padding: 26px 35px 42px 35px; } }
+  @media only all and (min-width: 0) and (max-width: 1023px) {
+    .grid .content {
+      padding: 20px; } }
+  .grid .image img {
+    max-width: 100%;
+    width: 100%; }
+  .grid .title {
+    line-height: 1.32;
+    font-weight: bold; }
+    @media only all and (min-width: 1024px) {
+      .grid .title {
+        font-size: 26px; } }
+    @media only all and (min-width: 0) and (max-width: 1023px) {
+      .grid .title {
+        font-size: 22px; } }
+  .grid .annotation {
+    color: #bcbcbc;
+    line-height: 1.5;
+    margin-top: 24px;
+    margin-bottom: 12px; }
+    @media only all and (min-width: 1024px) {
+      .grid .annotation {
+        font-size: 16px; } }
+    @media only all and (min-width: 0) and (max-width: 1023px) {
+      .grid .annotation {
+        font-size: 14px; } }
+
+.grid-bottom {
+  margin-top: 36px;
+  text-align: center; }
+
+.detail-page_link {
+  font-size: 18px;
+  color: #0c1b24;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: color 250ms ease; }
+  .detail-page_link:hover {
+    color: #4cb3ec; }
+    .detail-page_link:hover svg {
+      margin-left: 26px;
+      fill: #4cb3ec; }
+  .detail-page_link svg {
+    margin-left: 20px;
+    transition: all 220ms ease;
+    transform: translateY(2px); }
+
+.load-more_button {
+  color: #4cb3ec;
+  font-size: 16px;
+  text-decoration: none;
+  position: relative;
+  text-transform: uppercase; }
+  .load-more_button:after {
+    content: '';
+    left: 0;
+    right: 0;
+    top: calc(100% + 3px);
+    display: block;
+    height: 1px;
+    background: #4cb3ec; }

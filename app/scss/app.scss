@@ -59,7 +59,6 @@ form {
 
 footer {
   flex: 0 0 auto;
-  border-top: 1px solid #ddd;
 
   @include respond($mobile) {
     padding: 56px 0;
@@ -302,10 +301,10 @@ header {
     z-index: 1;
 
     @include respond(0, $mobile) {
-      background: rgba(0, 0, 0, 0.35);
+      background: rgba(0, 0, 0, 0.55);
     }
     @include respond($mobile) {
-      background: rgba(0, 0, 0, 0.15);
+      background: rgba(0, 0, 0, 0.55);
     }
   }
 }
@@ -384,7 +383,7 @@ header {
     font-size: 48px;
   }
   @include respond(0, $mobile) {
-    font-size: 34px;
+    font-size: 28px;
   }
   margin: 0;
   color: $white;
@@ -474,6 +473,7 @@ button {
       }
     }
   }
+
   .address-item {
     &:hover {
       box-shadow: none;
@@ -661,10 +661,10 @@ h2 {
 
 .page-content {
   @include respond($mobile) {
-    padding-top: 124px;
+    margin-top: 124px;
   }
   @include respond(0, $mobile) {
-    padding-top: 40px;
+    margin-top: 40px;
   }
 }
 
@@ -1145,6 +1145,7 @@ h2 {
   &:nth-child(2) {
     flex: 1;
   }
+
   &:nth-child(1) {
     margin-right: 55px;
   }
@@ -1256,5 +1257,146 @@ h2 {
       border-color: transparent $white transparent transparent;
     }
   }
+}
 
+.breadcrumbs {
+
+  @include respond($mobile) {
+    padding: 50px 0;
+  }
+
+  @include respond(0, $mobile) {
+    padding: 25px 0;
+  }
+
+  svg {
+    margin: 0 6px 0 2px;
+  }
+
+  span,
+  a {
+    font-size: 16px;
+    line-height: 1.5;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $black;
+    display: inline-block;
+    letter-spacing: 1.5px;
+  }
+}
+
+.works-page {
+  background: $section-bg;
+  padding-bottom: 120px;
+}
+
+.grid {
+  display: grid;
+  padding-top: 12px;
+
+  &-3 {
+    @include respond($mobile) {
+      grid-gap: 60px;
+    }
+    @include respond(0, $mobile) {
+      grid-gap: 30px;
+    }
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+
+  .card {
+    background: $white;
+    transition: box-shadow 250ms ease;
+
+    &:hover {
+      box-shadow: 0 0 19px 1px rgba(102, 102, 102, 0.2);
+    }
+  }
+
+  .content {
+    @include respond($mobile) {
+      padding: 26px 35px 42px 35px;
+    }
+    @include respond(0, $mobile) {
+      padding: 20px;
+    }
+  }
+
+  .image {
+    img {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  .title {
+    @include respond($mobile) {
+      font-size: 26px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 22px;
+    }
+    line-height: 1.32;
+    font-weight: bold;
+  }
+
+  .annotation {
+    @include respond($mobile) {
+      font-size: 16px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 14px;
+    }
+    color: $annotation-color;
+    line-height: 1.5;
+    margin-top: 24px;
+    margin-bottom: 12px;
+  }
+}
+
+.grid-bottom {
+  margin-top: 36px;
+  text-align: center;
+}
+
+.detail-page_link {
+  font-size: 18px;
+  color: $black;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: color 250ms ease;
+
+  &:hover {
+    color: $blue;
+
+    svg {
+      margin-left: 26px;
+      fill: $blue;
+    }
+  }
+
+  svg {
+    margin-left: 20px;
+    transition: all 220ms ease;
+    transform: translateY(2px);
+  }
+}
+
+.load-more_button {
+  color: $blue;
+  font-size: 16px;
+  text-decoration: none;
+  position: relative;
+  text-transform: uppercase;
+
+  &:after {
+    content: '';
+    left: 0;
+    right: 0;
+    top: calc(100% + 3px);
+    display: block;
+    height: 1px;
+    background: $blue;
+  }
 }
