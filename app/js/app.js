@@ -7,7 +7,7 @@ $(document).ready(function () {
     trainInit();
 
     $('.train').click(function () {
-        // scrollTo(0);
+        scrollTo(0);
     })
 });
 
@@ -52,7 +52,7 @@ function mapInit() {
         map.setCenter([$(this).attr('data-lng'), $(this).attr('data-lat')], 16, {
             checkZoomRange: true
         });
-        // scrollTo($('#map').offset().top - 25);
+        scrollTo($('#map').offset().top - 25);
         e.preventDefault();
     });
 

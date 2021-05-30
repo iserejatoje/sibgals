@@ -1,6 +1,14 @@
 @import "mixins";
 @import "variables";
 
+.f-medium {
+  font-weight: 500;
+}
+
+.f-light {
+  font-weight: 300;
+}
+
 .fs-18 {
   line-height: 1.4;
 
@@ -9,6 +17,17 @@
   }
   @include respond(0, $mobile) {
     font-size: 16px;
+  }
+}
+
+.fs-22 {
+  line-height: 2.182;
+
+  @include respond($mobile) {
+    font-size: 22px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 18px;
   }
 }
 
