@@ -1367,6 +1367,10 @@ h2 {
   align-items: center;
   transition: color 250ms ease;
 
+  @include respond(0, $mobile) {
+    margin: 10px 0;
+  }
+
   &:hover {
     color: $blue;
 

@@ -1360,6 +1360,9 @@ h2 {
   display: inline-flex;
   align-items: center;
   transition: color 250ms ease; }
+  @media only all and (min-width: 0) and (max-width: 1023px) {
+    .detail-page_link {
+      margin: 10px 0; } }
   .detail-page_link:hover {
     color: #4cb3ec; }
     .detail-page_link:hover svg {
