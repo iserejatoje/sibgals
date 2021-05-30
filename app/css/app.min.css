@@ -366,6 +366,12 @@ template {
 .mt-10 {
   margin-top: 10px; }
 
+.mt-6 {
+  margin-top: 6px; }
+
+.mt-12 {
+  margin-top: 12px; }
+
 .mt-8 {
   margin-top: 8px; }
 
@@ -1299,13 +1305,24 @@ h2 {
   display: inline-block;
   letter-spacing: 1.5px; }
 
+@media only all and (min-width: 1024px) {
+  .work-page {
+    padding-bottom: 125px; } }
+
+@media only all and (min-width: 0) and (max-width: 1023px) {
+  .work-page {
+    padding-bottom: 30px; } }
+
+.work-page,
+.works-page {
+  background: #f9f9fa; }
+
 .works-page {
   background: #f9f9fa;
   padding-bottom: 120px; }
 
 .grid {
-  display: grid;
-  padding-top: 12px; }
+  display: grid; }
   .grid-3 {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
     @media only all and (min-width: 1024px) {
@@ -1387,3 +1404,66 @@ h2 {
     display: block;
     height: 1px;
     background: #4cb3ec; }
+
+.work-page {
+  overflow: hidden; }
+
+.work-slider .pagination {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  transform: translateY(-35px);
+  flex-wrap: wrap; }
+
+.work-slider .swiper-pagination-bullet-active {
+  background: #4cb3ec; }
+
+.work-slider .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+  background: #bcbcbc; }
+
+.work-slider .swiper-pagination-bullet {
+  outline: 0;
+  transition: background 250ms ease;
+  border-radius: 0;
+  opacity: 1;
+  width: 50px;
+  height: 3px;
+  display: block; }
+  .work-slider .swiper-pagination-bullet:not(:last-child) {
+    margin: 0 15px 15px 0; }
+  .work-slider .swiper-pagination-bullet:hover {
+    background: #4cb3ec; }
+
+.work-slider .swiper-slide {
+  transition: box-shadow 250ms ease; }
+  .work-slider .swiper-slide img {
+    display: block;
+    max-width: 100%;
+    width: 100%; }
+  .work-slider .swiper-slide:hover {
+    box-shadow: 0 0 59px 0 rgba(0, 10, 16, 0.2); }
+
+.work-slider .swiper-wrapper {
+  padding-bottom: 70px; }
+
+.work-slider.swiper-container {
+  overflow: visible; }
+  @media only all and (min-width: 1024px) {
+    .work-slider.swiper-container {
+      margin-top: 75px; } }
+  @media only all and (min-width: 0) and (max-width: 1023px) {
+    .work-slider.swiper-container {
+      margin-top: 35px; } }
+
+.customer-row:first-child {
+  margin-bottom: 30px; }
+
+.customer-label {
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.357;
+  margin-bottom: 10px; }
+
+.customer-value {
+  font-size: 20px;
+  line-height: 1.3; }

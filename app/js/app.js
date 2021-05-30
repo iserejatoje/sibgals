@@ -3,6 +3,39 @@ let $train = $('.train'),
 
 $('[type="tel"]').mask('+7 (000) 000-00-00');
 
+function initWorkSlider() {
+    if ($('.work-slider').length > 0) {
+        let swiper = new Swiper(".work-slider", {
+            speed: 600,
+            watchSlidesVisibility: true,
+            preloadImages: false,
+            lazy: true,
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                500: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                850: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 60
+                }
+            },
+            pagination: {
+                el: ".work-slider .pagination",
+                clickable: true
+            },
+        });
+    }
+}
+
 $(document).ready(function () {
     trainInit();
 
@@ -17,6 +50,8 @@ $(document).ready(function () {
     $('.close-menu').click(function () {
         $('body').removeClass('menu-opened');
     })
+
+    initWorkSlider();
 });
 
 $(window).scroll(function () {
