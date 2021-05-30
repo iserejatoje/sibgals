@@ -72,6 +72,17 @@ footer {
   .information-list {
     margin-top: 34px;
   }
+
+  .i-icon {
+    width: 64px;
+    height: 64px;
+    @include respond(780px) {
+      margin-top: 30px;
+    }
+    @include respond(0, 780px) {
+      margin-top: 15px;
+    }
+  }
 }
 
 .depot-container {
@@ -217,21 +228,12 @@ footer {
   }
 }
 
-.footer-icon {
+.i-icon {
   background: transparentize($blue, .8);
-  width: 64px;
-  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background 250ms ease;
-
-  @include respond(780px) {
-    margin-top: 30px;
-  }
-  @include respond(0, 780px) {
-    margin-top: 15px;
-  }
 
   svg {
     transition: all 250ms ease;
@@ -465,6 +467,13 @@ button {
 }
 
 .no-touch {
+  .close-menu {
+    &:hover {
+      svg {
+        transform: scale(1.1);
+      }
+    }
+  }
   .address-item {
     &:hover {
       box-shadow: none;
@@ -732,17 +741,10 @@ h2 {
   }
 }
 
-
 .close-menu {
   position: absolute;
   right: 0;
   top: 0;
-
-  &:hover {
-    svg {
-      transform: scale(1.1);
-    }
-  }
 
   svg {
     fill: $blue;
@@ -1011,36 +1013,14 @@ h2 {
 }
 
 .menu-inner {
-  position: relative;
   padding-top: 16px;
-  display: flex;
+  position: relative;
 
-  .column {
-    position: relative;
+  @include respond(870px) {
     display: flex;
-    flex-direction: column;
+  }
 
-    &:nth-child(1) {
-      max-width: 525px;
-      width: 100%;
-      flex: 1;
-
-      &:after {
-        content: '';
-        position: absolute;
-        right: 0;
-        top: 14px;
-        bottom: 0;
-        width: 2px;
-        background: $light-gray;
-      }
-    }
-
-    &:nth-child(2) {
-      flex: 1;
-      padding-left: 72px;
-    }
-
+  .value {
     a {
       text-decoration: none;
       color: $black;
@@ -1051,23 +1031,99 @@ h2 {
         color: $blue;
       }
     }
+  }
+
+  ul {
+    a {
+      text-decoration: none;
+      color: $black;
+      transition: color 250ms ease;
+      display: inline-block;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+
+  .column {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &:nth-child(1) {
+
+      @include respond(940px) {
+        max-width: 525px;
+        width: 100%;
+        flex: 1;
+      }
+      @include respond(0, 940px) {
+        max-width: 360px;
+        width: 100%;
+      }
+      max-width: 525px;
+      width: 100%;
+      flex: 1;
+
+      @include respond(870px) {
+        &:after {
+          content: '';
+          position: absolute;
+          right: 0;
+          top: 14px;
+          bottom: -12px;
+          width: 2px;
+          background: $light-gray;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      flex: 1;
+
+      @include respond(1080px) {
+        padding-left: 72px;
+      }
+      @include respond(870px, 1080px) {
+        padding-left: 30px;
+      }
+
+      ul {
+        flex: 1;
+      }
+    }
 
     > ul {
       > li {
         ul {
           a {
-            font-size: 24px;
-            line-height: 2;
-            margin-bottom: 12px;
-            font-weight: 300;
+            @include respond($mobile) {
+              font-size: 24px;
+              line-height: 2;
+              margin-bottom: 12px;
+              font-weight: 300;
+            }
+            @include respond(0, $mobile) {
+              font-size: 18px;
+              line-height: 1.3;
+              margin-bottom: 11px;
+              font-weight: 300;
+            }
           }
         }
 
         > a {
-          font-size: 36px;
-          color: $black;
-          line-height: 1.333;
-          margin-bottom: 22px;
+          @include respond($mobile) {
+            font-size: 36px;
+            line-height: 1.333;
+            margin-bottom: 22px;
+          }
+          @include respond(0, $mobile) {
+            font-size: 24px;
+            line-height: 1.3;
+            margin-bottom: 11px;
+          }
         }
       }
     }
@@ -1085,37 +1141,120 @@ h2 {
   }
 }
 
+.menu-information_item {
+  &:nth-child(2) {
+    flex: 1;
+  }
+  &:nth-child(1) {
+    margin-right: 55px;
+  }
+}
+
+.menu-information {
+  padding-bottom: 12px;
+
+  @include respond($mobile) {
+    display: flex;
+  }
+  @include respond(0, $mobile) {
+    margin-top: 15px;
+  }
+
+  .label {
+    line-height: 2.1;
+
+    @include respond($mobile) {
+      font-size: 22px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 18px;
+    }
+  }
+
+  .i-icon {
+    width: 78px;
+    height: 78px;
+    transform: translateY(18px);
+  }
+
+  .value {
+    line-height: 1.5;
+
+    @include respond($mobile) {
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -8px;
+        max-width: 50px;
+        width: 100%;
+        height: 2px;
+        background: $blue;
+      }
+    }
+
+    @include respond($mobile) {
+      font-size: 22px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 18px;
+    }
+  }
+}
+
+.menu-opened {
+  @include respond(0, $mobile) {
+    overflow: hidden;
+  }
+
+  .menu {
+    display: block;
+  }
+}
+
 .menu {
   background: $white;
-  padding-top: 60px;
-  padding-bottom: 115px;
-  position: absolute;
   top: 0;
-  display: none;
   left: 0;
   right: 0;
   z-index: 10;
-  min-height: 260px;
+  display: none;
 
-  &:after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: calc(50% + 20px);
-    height: 40px;
-    right: 0;
-    background: $white;
+  @include respond(0, $mobile) {
+    position: fixed;
+    overflow-y: auto;
+    padding-top: 30px;
+    padding-bottom: 55px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.38);
+    bottom: 0;
   }
 
-  &:before {
-    content: '';
+  @include respond($mobile) {
+    min-height: 770px;
     position: absolute;
-    top: 100%;
-    left: calc(50% - 20px);
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 40px 40px 0;
-    border-color: transparent $white transparent transparent;
+    padding-top: 60px;
+    padding-bottom: 115px;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: calc(50% + 20px);
+      height: 40px;
+      right: 0;
+      background: $white;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: calc(50% - 20px);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 40px 40px 0;
+      border-color: transparent $white transparent transparent;
+    }
   }
+
 }

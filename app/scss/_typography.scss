@@ -20,17 +20,6 @@
   }
 }
 
-.fs-22 {
-  line-height: 2.182;
-
-  @include respond($mobile) {
-    font-size: 22px;
-  }
-  @include respond(0, $mobile) {
-    font-size: 18px;
-  }
-}
-
 .mt-10 {
   margin-top: 10px;
 }
