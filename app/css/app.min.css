@@ -1284,6 +1284,12 @@ h2 {
         border-width: 0 40px 40px 0;
         border-color: transparent #fff transparent transparent; } }
 
+.swiper-container:not(.swiper-container-initialized) {
+  opacity: 0; }
+
+.swiper-container .swiper-container-initialized {
+  opacity: 1; }
+
 @media only all and (min-width: 1024px) {
   .breadcrumbs {
     padding: 50px 0; } }
@@ -1439,7 +1445,8 @@ h2 {
   .work-slider .swiper-slide img {
     display: block;
     max-width: 100%;
-    width: 100%; }
+    width: 100%;
+    height: auto; }
   .work-slider .swiper-slide:hover {
     box-shadow: 0 0 59px 0 rgba(0, 10, 16, 0.2); }
 
