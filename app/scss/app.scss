@@ -765,6 +765,20 @@ h2 {
   }
 }
 
+.boat-image_gray-fill {
+  position: absolute;
+  transform: translateY(-67px);
+  opacity: .25;
+  fill: $gray;
+  pointer-events: none;
+  user-select: none;
+  right: -34px;
+
+  @include respond(0, 870px) {
+    display: none;
+  }
+}
+
 .contact-form {;
   background: $blue;
 
@@ -1219,6 +1233,7 @@ h2 {
   right: 0;
   z-index: 10;
   display: none;
+  overflow: hidden;
 
   @include respond(0, $mobile) {
     position: fixed;

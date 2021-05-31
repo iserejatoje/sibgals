@@ -942,6 +942,18 @@ h2 {
     .boat-image {
       display: none; } }
 
+.boat-image_gray-fill {
+  position: absolute;
+  transform: translateY(-67px);
+  opacity: .25;
+  fill: #f0f0f0;
+  pointer-events: none;
+  user-select: none;
+  right: -34px; }
+  @media only all and (min-width: 0) and (max-width: 869px) {
+    .boat-image_gray-fill {
+      display: none; } }
+
 .contact-form {
   background: #4cb3ec; }
   @media only all and (min-width: 0) and (max-width: 1023px) {
@@ -1249,7 +1261,8 @@ h2 {
   left: 0;
   right: 0;
   z-index: 10;
-  display: none; }
+  display: none;
+  overflow: hidden; }
   @media only all and (min-width: 0) and (max-width: 1023px) {
     .menu {
       position: fixed;
