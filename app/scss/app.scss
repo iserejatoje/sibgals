@@ -1284,16 +1284,13 @@ h2 {
 }
 
 .breadcrumbs {
-
   @include respond($mobile) {
     padding: 50px 0 55px 0;
   }
 
   @include respond(0, $mobile) {
     padding: 25px 0;
-
   }
-
 
   svg {
     margin: 0 6px 0 2px;
@@ -1309,7 +1306,12 @@ h2 {
 
   span,
   a {
-    font-size: 16px;
+    @include respond($mobile) {
+      font-size: 16px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 14px;
+    }
     line-height: 1.5;
     text-decoration: none;
     text-transform: uppercase;
@@ -1743,9 +1745,15 @@ input[type=number] {
 }
 
 .news-date {
-  font-size: 18px;
   color: $annotation-color;
-  margin-left: 40px;
+  @include respond($mobile) {
+    font-size: 18px;
+    margin-left: 40px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 16px;
+    margin-top: 10px;
+  }
 }
 
 .news-page > .container {
@@ -1753,23 +1761,35 @@ input[type=number] {
 }
 
 .news-inner {
-  padding-right: 450px;
+  max-width: 800px;
+
+  @include respond($mobile) {
+    padding-right: 80px;
+    flex: 1;
+  }
 }
 
 .news-wrapper {
-  border-bottom: 2px solid $gray;
-  position: relative;
+  @include respond($mobile) {
+    border-bottom: 2px solid $gray;
+    display: flex;
+    position: relative;
+  }
 }
 
 .news-bar {
-  max-width: 370px;
-  width: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  border-left: 2px solid $gray;
-  padding-top: 30px;
+  @include respond(0, $mobile) {
+    margin-bottom: 40px;
+  }
+  @include respond($mobile) {
+    max-width: 370px;
+    width: 100%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-left: 2px solid $gray;
+    padding-top: 30px;
+  }
 
   .news-list {
     a {
@@ -1777,7 +1797,6 @@ input[type=number] {
       display: block;
       padding: 28px;
       border: 2px solid $gray;
-      border-left: none;
 
       &:not(:last-child) {
         border-bottom: none;
@@ -1804,36 +1823,68 @@ input[type=number] {
   }
 
   .news-train {
-    position: sticky;
-    top: 30px;
-    transform: translateY(2px);
+    @include respond($mobile) {
+      position: sticky;
+      top: 30px;
+      transform: translateY(2px);
+    }
   }
 
   .title {
-    padding-left: 28px;
+    @include respond($mobile) {
+      padding-left: 28px;
+    }
+    @include respond(0, $mobile) {
+      margin-bottom: 25px;
+    }
+    @include respond($mobile) {
+      min-height: 60px;
+    }
     font-size: 24px;
     line-height: 1.2;
     font-weight: bold;
-    min-height: 60px;
     display: flex;
     align-items: center;
   }
 }
 
 .news-top {
-  display: flex;
-  align-items: center;
+  @include respond($mobile) {
+    display: flex;
+    align-items: center;
+  }
+  @include respond(0, $mobile) {
+  }
   margin-bottom: 26px;
 }
 
 .news-content {
+
+  @include respond($mobile) {
+    padding-bottom: 70px;
+  }
+  @include respond(0, $mobile) {
+    padding-bottom: 30px;
+  }
+
   img,
   p img {
-    margin: 55px 0 45px 0;
+    @include respond($mobile) {
+      margin: 55px 0 45px 0;
+    }
+    @include respond(0, $mobile) {
+      margin: 15px 0;
+    }
+    max-width: 100%;
   }
 
   .title {
-    font-size: 38px;
+    @include respond($mobile) {
+      font-size: 38px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 30px;
+    }
     line-height: 1.2;
     font-weight: bold;
     margin-bottom: 24px;
@@ -1853,7 +1904,12 @@ input[type=number] {
 }
 
 .return-link {
-  font-size: 18px;
+  @include respond($mobile) {
+    font-size: 18px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 15px;
+  }
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
