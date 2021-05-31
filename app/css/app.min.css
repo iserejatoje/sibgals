@@ -1324,8 +1324,13 @@ h2 {
   background: #f9f9fa; }
 
 .works-page {
-  background: #f9f9fa;
-  padding-bottom: 120px; }
+  background: #f9f9fa; }
+  @media only all and (min-width: 1024px) {
+    .works-page {
+      padding-bottom: 120px; } }
+  @media only all and (min-width: 0) and (max-width: 1023px) {
+    .works-page {
+      padding-bottom: 50px; } }
 
 @media only all and (min-width: 1024px) {
   .grid-3 {
@@ -1370,7 +1375,7 @@ h2 {
       font-size: 26px; } }
   @media only all and (min-width: 0) and (max-width: 1023px) {
     .grid .title {
-      font-size: 22px; } }
+      font-size: 20px; } }
 
 .grid .annotation {
   color: #bcbcbc;
