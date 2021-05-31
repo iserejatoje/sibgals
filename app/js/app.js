@@ -1,4 +1,5 @@
 let $train = $('.train'),
+    mapDelay = 1100,
     trainDistance = 200;
 
 $('[type="tel"]').mask('+7 (000) 000-00-00');
@@ -96,7 +97,7 @@ if ($('#map').length > 0) {
         element.type = 'text/javascript';
         element.src = '//api-maps.yandex.ru/2.0/?load=package.standard&apikey=51d373bc-ef59-4e41-8e63-3f5828620b8e&lang=ru-RU&onload=mapInit';
         document.getElementsByTagName('body')[0].appendChild(element);
-    }, 1200);
+    }, mapDelay);
 }
 
 function mapInit() {
