@@ -1350,7 +1350,7 @@ h2 {
   transition: box-shadow 250ms ease; }
   @media only all and (min-width: 0) and (max-width: 549px) {
     .grid .card:not(:last-child) {
-      margin-bottom: 30px; } }
+      margin-bottom: 20px; } }
   .grid .card:hover {
     box-shadow: 0 0 19px 1px rgba(102, 102, 102, 0.2); }
 

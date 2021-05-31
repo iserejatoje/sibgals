@@ -1341,7 +1341,7 @@ h2 {
 
     @include respond(0, 550px) {
       &:not(:last-child) {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
       }
     }
 
