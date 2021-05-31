@@ -1712,6 +1712,9 @@ input[type=number] {
   display: block;
   padding: 28px;
   border: 2px solid #f0f0f0; }
+  @media only all and (min-width: 1024px) {
+    .news-bar .news-list a {
+      border-left: none; } }
   .news-bar .news-list a:not(:last-child) {
     border-bottom: none; }
   .news-bar .news-list a:hover .name {

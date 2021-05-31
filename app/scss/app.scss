@@ -1798,6 +1798,10 @@ input[type=number] {
       padding: 28px;
       border: 2px solid $gray;
 
+      @include respond($mobile) {
+        border-left: none;
+      }
+
       &:not(:last-child) {
         border-bottom: none;
       }
