@@ -1300,6 +1300,11 @@ h2 {
 .breadcrumbs svg {
   margin: 0 6px 0 2px; }
 
+.breadcrumbs a {
+  transition: color 250ms ease; }
+  .breadcrumbs a:hover {
+    color: #4cb3ec; }
+
 .breadcrumbs span,
 .breadcrumbs a {
   font-size: 16px;
@@ -1641,6 +1646,93 @@ input[type=number] {
   margin-top: auto;
   padding-top: 20px; }
 
+.news-date {
+  font-size: 18px;
+  color: #bcbcbc;
+  margin-left: 40px; }
+
+.news-page > .container {
+  position: relative; }
+
+.news-inner {
+  padding-right: 450px; }
+
+.news-wrapper {
+  border-bottom: 2px solid #f0f0f0;
+  position: relative; }
+
+.news-bar {
+  max-width: 370px;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-left: 2px solid #f0f0f0;
+  padding-top: 30px; }
+  .news-bar .news-list a {
+    text-decoration: none;
+    display: block;
+    padding: 28px;
+    border: 2px solid #f0f0f0;
+    border-left: none; }
+    .news-bar .news-list a:not(:last-child) {
+      border-bottom: none; }
+    .news-bar .news-list a:hover .name {
+      color: #4cb3ec; }
+  .news-bar .news-list .date {
+    color: #bcbcbc;
+    font-size: 18px;
+    margin-bottom: 10px; }
+  .news-bar .news-list .name {
+    color: #0c1b24;
+    font-weight: 600;
+    transition: color 250ms ease; }
+  .news-bar .news-train {
+    position: sticky;
+    top: 30px;
+    transform: translateY(2px); }
+  .news-bar .title {
+    padding-left: 28px;
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: bold;
+    min-height: 60px;
+    display: flex;
+    align-items: center; }
+
+.news-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 26px; }
+
+.news-content img,
+.news-content p img {
+  margin: 55px 0 45px 0; }
+
+.news-content .title {
+  font-size: 38px;
+  line-height: 1.2;
+  font-weight: bold;
+  margin-bottom: 24px; }
+
+.news-content p {
+  font-size: 16px;
+  line-height: 1.625; }
+
 .product-price span {
   font-size: 48px;
   font-weight: bold; }
+
+.return-link {
+  font-size: 18px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  color: #bcbcbc;
+  text-decoration: none;
+  transition: color 250ms ease; }
+  .return-link:hover {
+    color: #4cb3ec; }
+  .return-link svg {
+    margin-right: 10px; }

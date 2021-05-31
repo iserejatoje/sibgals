@@ -1073,7 +1073,7 @@ h2 {
           top: 14px;
           bottom: -12px;
           width: 2px;
-          background: $light-gray;
+          background: $gray;
         }
       }
     }
@@ -1276,10 +1276,19 @@ h2 {
 
   @include respond(0, $mobile) {
     padding: 25px 0;
+
   }
 
   svg {
     margin: 0 6px 0 2px;
+  }
+
+  a {
+    transition: color 250ms ease;
+
+    &:hover {
+      color: $blue;
+    }
   }
 
   span,
@@ -1717,9 +1726,130 @@ input[type=number] {
   padding-top: 20px;
 }
 
+.news-date {
+  font-size: 18px;
+  color: $annotation-color;
+  margin-left: 40px;
+}
+
+.news-page > .container {
+  position: relative;
+}
+
+.news-inner {
+  padding-right: 450px;
+}
+
+.news-wrapper {
+  border-bottom: 2px solid $gray;
+  position: relative;
+}
+
+.news-bar {
+  max-width: 370px;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-left: 2px solid $gray;
+  padding-top: 30px;
+
+  .news-list {
+    a {
+      text-decoration: none;
+      display: block;
+      padding: 28px;
+      border: 2px solid $gray;
+      border-left: none;
+
+      &:not(:last-child) {
+        border-bottom: none;
+      }
+
+      &:hover {
+        .name {
+          color: $blue;
+        }
+      }
+    }
+
+    .date {
+      color: $annotation-color;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .name {
+      color: $black;
+      font-weight: 600;
+      transition: color 250ms ease;
+    }
+  }
+
+  .news-train {
+    position: sticky;
+    top: 30px;
+    transform: translateY(2px);
+  }
+
+  .title {
+    padding-left: 28px;
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: bold;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.news-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.news-content {
+  img,
+  p img {
+    margin: 55px 0 45px 0;
+  }
+
+  .title {
+    font-size: 38px;
+    line-height: 1.2;
+    font-weight: bold;
+    margin-bottom: 24px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.625;
+  }
+}
+
 .product-price {
   span {
     font-size: 48px;
     font-weight: bold;
+  }
+}
+
+.return-link {
+  font-size: 18px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  color: $annotation-color;
+  text-decoration: none;
+  transition: color 250ms ease;
+
+  &:hover {
+    color: $blue;
+  }
+
+  svg {
+    margin-right: 10px;
   }
 }
