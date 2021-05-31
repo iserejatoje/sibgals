@@ -1327,50 +1327,62 @@ h2 {
   background: #f9f9fa;
   padding-bottom: 120px; }
 
-.grid {
-  display: grid; }
+@media only all and (min-width: 1024px) {
   .grid-3 {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
-    @media only all and (min-width: 1024px) {
-      .grid-3 {
-        grid-gap: 60px; } }
-    @media only all and (min-width: 0) and (max-width: 1023px) {
-      .grid-3 {
-        grid-gap: 30px; } }
-  .grid .card {
-    background: #fff;
-    transition: box-shadow 250ms ease; }
-    .grid .card:hover {
-      box-shadow: 0 0 19px 1px rgba(102, 102, 102, 0.2); }
+    grid-gap: 60px; } }
+
+@media only all and (min-width: 550px) and (max-width: 1023px) {
+  .grid-3 {
+    grid-gap: 30px; } }
+
+@media only all and (min-width: 550px) {
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); } }
+
+.grid .card {
+  background: #fff;
+  transition: box-shadow 250ms ease; }
+  @media only all and (min-width: 0) and (max-width: 549px) {
+    .grid .card:not(:last-child) {
+      margin-bottom: 30px; } }
+  .grid .card:hover {
+    box-shadow: 0 0 19px 1px rgba(102, 102, 102, 0.2); }
+
+@media only all and (min-width: 1024px) {
+  .grid .content {
+    padding: 26px 35px 42px 35px; } }
+
+@media only all and (min-width: 0) and (max-width: 1023px) {
+  .grid .content {
+    padding: 20px; } }
+
+.grid .image img {
+  max-width: 100%;
+  width: 100%;
+  height: auto; }
+
+.grid .title {
+  line-height: 1.32;
+  font-weight: bold; }
   @media only all and (min-width: 1024px) {
-    .grid .content {
-      padding: 26px 35px 42px 35px; } }
+    .grid .title {
+      font-size: 26px; } }
   @media only all and (min-width: 0) and (max-width: 1023px) {
-    .grid .content {
-      padding: 20px; } }
-  .grid .image img {
-    max-width: 100%;
-    width: 100%; }
-  .grid .title {
-    line-height: 1.32;
-    font-weight: bold; }
-    @media only all and (min-width: 1024px) {
-      .grid .title {
-        font-size: 26px; } }
-    @media only all and (min-width: 0) and (max-width: 1023px) {
-      .grid .title {
-        font-size: 22px; } }
-  .grid .annotation {
-    color: #bcbcbc;
-    line-height: 1.5;
-    margin-top: 24px;
-    margin-bottom: 12px; }
-    @media only all and (min-width: 1024px) {
-      .grid .annotation {
-        font-size: 16px; } }
-    @media only all and (min-width: 0) and (max-width: 1023px) {
-      .grid .annotation {
-        font-size: 14px; } }
+    .grid .title {
+      font-size: 22px; } }
+
+.grid .annotation {
+  color: #bcbcbc;
+  line-height: 1.5;
+  margin-top: 24px;
+  margin-bottom: 12px; }
+  @media only all and (min-width: 1024px) {
+    .grid .annotation {
+      font-size: 16px; } }
+  @media only all and (min-width: 0) and (max-width: 1023px) {
+    .grid .annotation {
+      font-size: 14px; } }
 
 .grid-bottom {
   margin-top: 36px;

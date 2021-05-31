@@ -1315,21 +1315,29 @@ h2 {
 }
 
 .grid {
-  display: grid;
 
   &-3 {
     @include respond($mobile) {
       grid-gap: 60px;
     }
-    @include respond(0, $mobile) {
+    @include respond(550px, $mobile) {
       grid-gap: 30px;
     }
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    @include respond(550px) {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
   }
 
   .card {
     background: $white;
     transition: box-shadow 250ms ease;
+
+    @include respond(0, 550px) {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
 
     &:hover {
       box-shadow: 0 0 19px 1px rgba(102, 102, 102, 0.2);
@@ -1349,6 +1357,7 @@ h2 {
     img {
       max-width: 100%;
       width: 100%;
+      height: auto;
     }
   }
 
