@@ -218,6 +218,7 @@ footer {
 }
 
 .footer-inner {
+  //border-top: 2px solid $gray;
   display: flex;
   @include respond(780px) {
     flex-wrap: wrap;
@@ -1424,6 +1425,18 @@ h2 {
   text-align: center;
 }
 
+.news-bottom {
+  @include respond($mobile) {
+    margin-top: 60px;
+    margin-bottom: 80px;
+  }
+  @include respond(0, $mobile) {
+    margin-top: 30px;
+    margin-bottom: 45px;
+  }
+  text-align: center;
+}
+
 .detail-page_link {
   font-size: 18px;
   color: $black;
@@ -1756,8 +1769,143 @@ input[type=number] {
   }
 }
 
-.news-page > .container {
-  position: relative;
+.news-grid {
+  display: grid;
+
+  @include respond($mobile) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  @include respond(780px, $mobile) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  @include respond(540px, 780px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  @include respond(0, 540px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  @include respond(1110px) {
+    grid-gap: 38px;
+  }
+  @include respond(0, 1110px) {
+    grid-gap: 20px;
+  }
+
+  .date {
+    font-weight: 300;
+    font-size: 18px;
+    flex: 1;
+  }
+
+  .title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+
+    @include respond(1110px) {
+      padding: 36px;
+    }
+    @include respond(0, 1110px) {
+      padding: 20px;
+    }
+  }
+
+  .image {
+    height: 100%;
+  }
+
+  .card {
+    position: relative;
+
+    &:hover {
+      &:before {
+        background: transparentize($blue, .5);
+      }
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      transition: background 250ms ease;
+      background: transparentize($black, .5);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &.large {
+
+      @include respond($mobile) {
+        grid-area: 1 / 1 / 3 / 3;
+      }
+
+      .title {
+        @include respond(1110px) {
+          font-size: 26px;
+        }
+        @include respond($mobile, 1110px) {
+          font-size: 22px;
+        }
+      }
+    }
+
+    &.small {
+      @include respond($mobile) {
+        grid-area: 4 / 1 / 5 / 3;
+
+        img {
+          max-height: 264px;
+        }
+      }
+
+      .title {
+        @include respond(1110px) {
+          font-size: 28px;
+        }
+        @include respond($mobile, 1110px) {
+          font-size: 20px;
+        }
+        @include respond(0, $mobile) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+
+}
+
+.news-page {
+  > .container {
+    position: relative;
+  }
 }
 
 .news-inner {
@@ -1821,7 +1969,7 @@ input[type=number] {
 
     .name {
       color: $black;
-      font-weight: 600;
+      font-weight: 500;
       transition: color 250ms ease;
     }
   }
