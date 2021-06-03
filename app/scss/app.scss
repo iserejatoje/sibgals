@@ -2145,10 +2145,6 @@ input[type=number] {
         margin-bottom: 5px;
       }
 
-      &.active {
-        color: $blue;
-      }
-
       &.active,
       &:hover {
         @include respond($mobile) {

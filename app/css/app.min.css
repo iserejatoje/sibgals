@@ -1973,8 +1973,6 @@ input[type=number] {
           padding: 17px; } }
       .price-block .price-tabs a:not(:last-child) {
         margin-bottom: 5px; }
-      .price-block .price-tabs a.active {
-        color: #4cb3ec; }
       @media only all and (min-width: 1024px) {
         .price-block .price-tabs a.active, .price-block .price-tabs a:hover {
           border-left: 10px solid #4cb3ec; } }
