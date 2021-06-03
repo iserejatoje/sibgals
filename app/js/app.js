@@ -48,6 +48,12 @@ $(document).ready(function () {
         $('body').addClass('menu-opened');
     })
 
+    $('.price-tabs a').click(function (e) {
+        $(this).addClass('active').siblings().removeClass('active');
+        $('.price-table .table').eq($(this).index()).addClass('active').siblings().removeClass('active');
+        e.preventDefault();
+    })
+
     $('.minus').click(function () {
         let number = $(this).parent('.count-wrapper').find('input').val();
         number--;
@@ -79,8 +85,8 @@ $(window).scroll(function () {
 });
 
 function scrollTo(offset, speed) {
-    speed = speed || 500;
-    $('body, html').animate({'scrollTop': offset}, speed);
+    // speed = speed || 500;
+    // $('body, html').animate({'scrollTop': offset}, speed);
 }
 
 function trainInit() {

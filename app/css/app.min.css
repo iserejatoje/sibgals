@@ -1261,8 +1261,7 @@ h2 {
   left: 0;
   right: 0;
   z-index: 10;
-  display: none;
-  overflow: hidden; }
+  display: none; }
   @media only all and (min-width: 0) and (max-width: 1023px) {
     .menu {
       position: fixed;
@@ -1919,3 +1918,284 @@ input[type=number] {
     color: #4cb3ec; }
   .return-link svg {
     margin-right: 10px; }
+
+.price-table {
+  flex: 1; }
+
+.price-block {
+  padding-bottom: 75px; }
+  @media only all and (min-width: 1024px) {
+    .price-block {
+      display: flex; } }
+  .price-block .price-tabs {
+    width: 100%; }
+    @media only all and (min-width: 1024px) {
+      .price-block .price-tabs {
+        padding-right: 70px;
+        max-width: 372px; } }
+    @media only all and (min-width: 0) and (max-width: 1023px) {
+      .price-block .price-tabs {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px; } }
+    .price-block .price-tabs a {
+      position: relative;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding-left: 45px;
+      transition: border-color 250ms ease; }
+      .price-block .price-tabs a span {
+        position: relative; }
+      .price-block .price-tabs a:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, black 0%, transparent 100%); }
+      @media only all and (min-width: 1024px) {
+        .price-block .price-tabs a {
+          border-left: 10px solid #c2c6c8; } }
+      @media only all and (min-width: 0) and (max-width: 1023px) {
+        .price-block .price-tabs a {
+          border-left: 5px solid #c2c6c8; } }
+      @media only all and (min-width: 1024px) {
+        .price-block .price-tabs a {
+          min-height: 100px; } }
+      @media only all and (min-width: 0) and (max-width: 1023px) {
+        .price-block .price-tabs a {
+          padding: 17px; } }
+      .price-block .price-tabs a:not(:last-child) {
+        margin-bottom: 5px; }
+      .price-block .price-tabs a.active {
+        color: #4cb3ec; }
+      @media only all and (min-width: 1024px) {
+        .price-block .price-tabs a.active, .price-block .price-tabs a:hover {
+          border-left: 10px solid #4cb3ec; } }
+      @media only all and (min-width: 0) and (max-width: 1023px) {
+        .price-block .price-tabs a.active, .price-block .price-tabs a:hover {
+          border-left: 5px solid #4cb3ec; } }
+
+.table {
+  overflow-x: auto; }
+  .table.active {
+    display: block; }
+  .table:not(.active) {
+    display: none; }
+  .table table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+    table-layout: fixed; }
+  .table thead td {
+    text-align: center;
+    background: #4cb3ec;
+    color: #fff;
+    padding: 26px;
+    text-transform: uppercase;
+    font-weight: 500; }
+  .table tr:nth-child(odd) {
+    background: #f2f2f2; }
+  .table tr:nth-child(even) {
+    background: #f9f9f9; }
+  .table td {
+    border: 1px none #e4e4e4;
+    border-top-style: solid; }
+    .table td:not(:last-child) {
+      border-right-style: solid; }
+  .table tbody td {
+    padding: 16px 30px;
+    font-size: 16px;
+    font-weight: 500; }
+
+.full-height {
+  height: 100%;
+  display: flex;
+  align-items: center; }
+
+.description-block {
+  display: flex;
+  align-items: center; }
+  @media only all and (min-width: 0) and (max-width: 1023px) {
+    .description-block {
+      flex-direction: column; } }
+
+.price-info {
+  clip-path: polygon(0% 0%, 0 calc(100% - 30px), calc(50% - 20px) calc(100% - 30px), calc(50% + 20px) 100%, 100% 100%, 100% 30px, calc(50% + 20px) 30px, calc(50% - 20px) 0); }
+  @media only all and (min-width: 1024px) {
+    .price-info {
+      height: 574px; } }
+  @media only all and (min-width: 0) and (max-width: 1023px) {
+    .price-info {
+      height: 400px;
+      background: #4cb3ec !important; } }
+  @media only all and (min-width: 1024px) {
+    .price-info .column {
+      width: 50%; } }
+  @media only all and (min-width: 0) and (max-width: 1023px) {
+    .price-info .column:last-child {
+      display: none; } }
+  .price-info .image {
+    padding-left: 32px;
+    padding-top: 60px;
+    max-width: 100%; }
+  .price-info .description-block {
+    margin-top: 32px; }
+  .price-info .description {
+    line-height: 1.5;
+    color: #fff; }
+    @media only all and (min-width: 1024px) {
+      .price-info .description {
+        font-size: 24px; } }
+    @media only all and (min-width: 0) and (max-width: 1023px) {
+      .price-info .description {
+        font-size: 17px; } }
+  .price-info .icon {
+    margin-right: 32px; }
+    @media only all and (min-width: 0) and (max-width: 1023px) {
+      .price-info .icon {
+        display: none; } }
+  .price-info .title {
+    color: #fff;
+    font-weight: bold;
+    line-height: 1.369;
+    padding-left: 28px;
+    border-left: 5px solid #fff; }
+    @media only all and (min-width: 1024px) {
+      .price-info .title {
+        font-size: 38px; } }
+    @media only all and (min-width: 0) and (max-width: 1023px) {
+      .price-info .title {
+        font-size: 24px; } }
+  .price-info:after {
+    background: #4cb3ec;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1; }
+
+[type="file"] {
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+  width: 10px;
+  height: 10px;
+  z-index: -1; }
+
+.form-columns {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
+  @media only all and (min-width: 0) and (max-width: 1023px) {
+    .form-columns {
+      justify-content: center; } }
+  @media only all and (min-width: 1024px) {
+    .form-columns .column {
+      width: 50%; } }
+  .form-columns .column form {
+    background: #fff;
+    box-shadow: 0 5px 55px 0 rgba(0, 0, 0, 0.15);
+    max-width: 520px;
+    min-height: 675px; }
+    @media only all and (min-width: 1024px) {
+      .form-columns .column form {
+        margin-left: 52px;
+        padding: 50px 68px; } }
+    @media only all and (min-width: 0) and (max-width: 1023px) {
+      .form-columns .column form {
+        padding: 30px; } }
+    .form-columns .column form .title {
+      line-height: 1.8;
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase; }
+    .form-columns .column form .annotation {
+      line-height: 1.65;
+      margin-top: 9px;
+      margin-bottom: 40px; }
+      @media only all and (min-width: 1024px) {
+        .form-columns .column form .annotation {
+          font-size: 18px; } }
+      @media only all and (min-width: 0) and (max-width: 1023px) {
+        .form-columns .column form .annotation {
+          font-size: 16px; } }
+  .form-columns .column .form-bottom {
+    font-size: 14px;
+    color: #bcbcbc;
+    text-align: center;
+    line-height: 1.286;
+    max-width: 235px;
+    margin: 15px auto 0 auto; }
+  .form-columns .column .elements button {
+    height: 70px;
+    text-transform: uppercase;
+    letter-spacing: .8px; }
+  .form-columns .column .elements svg {
+    fill: #bcbcbc;
+    margin: 0 20px; }
+    @media only all and (min-width: 0) and (max-width: 499px) {
+      .form-columns .column .elements svg {
+        display: none; } }
+  .form-columns .column .elements label.input {
+    cursor: pointer; }
+    .form-columns .column .elements label.input span {
+      display: flex;
+      align-items: center;
+      height: 70px; }
+  .form-columns .column .elements .shadow {
+    box-shadow: inset 3px 3px 9px 0 rgba(0, 0, 0, 0.05);
+    background: #f9f9f9; }
+  .form-columns .column .elements .file {
+    background: #e9e7e7; }
+  .form-columns .column .elements .input {
+    display: flex;
+    align-items: center; }
+    @media only all and (min-width: 0) and (max-width: 499px) {
+      .form-columns .column .elements .input {
+        padding: 0 15px; } }
+    .form-columns .column .elements .input:not(:last-child) {
+      margin-bottom: 15px; }
+  .form-columns .column .elements [type="text"],
+  .form-columns .column .elements [type="tel"] {
+    width: 100%; }
+    .form-columns .column .elements [type="text"]::placeholder,
+    .form-columns .column .elements [type="tel"]::placeholder {
+      color: #bcbcbc; }
+  .form-columns .column .elements input {
+    height: 70px;
+    background: transparent;
+    padding: 0; }
+  .form-columns .column:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+  .form-columns .column:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end; }
+    @media only all and (min-width: 0) and (max-width: 1023px) {
+      .form-columns .column:last-child {
+        display: none; } }
+    .form-columns .column:last-child img {
+      transform: translate3d(40px, 30px, 0); }
+
+.price-form {
+  margin-top: -30px;
+  background-size: 1500px; }
+  @media only all and (min-width: 1024px) {
+    .price-form {
+      height: 940px; } }
+  @media only all and (min-width: 0) and (max-width: 1023px) {
+    .price-form {
+      padding: 62px 0 31px 0; } }

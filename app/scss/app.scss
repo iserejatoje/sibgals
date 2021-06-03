@@ -1234,7 +1234,6 @@ h2 {
   right: 0;
   z-index: 10;
   display: none;
-  overflow: hidden;
 
   @include respond(0, $mobile) {
     position: fixed;
@@ -2076,4 +2075,399 @@ input[type=number] {
   svg {
     margin-right: 10px;
   }
+}
+
+.price-table {
+  flex: 1;
+}
+
+.price-block {
+  padding-bottom: 75px;
+
+  @include respond($mobile) {
+    display: flex;
+  }
+
+  .price-tabs {
+    width: 100%;
+
+    @include respond($mobile) {
+      padding-right: 70px;
+      max-width: 372px;
+    }
+    @include respond(0, $mobile) {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+
+    a {
+      position: relative;
+
+      span {
+        position: relative;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, rgb(0, 0, 0) 0%, transparent 100%);
+      }
+
+      color: $white;
+      font-weight: bold;
+      @include respond($mobile) {
+        border-left: 10px solid $tab-disabled;
+      }
+      @include respond(0, $mobile) {
+        border-left: 5px solid $tab-disabled;
+      }
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding-left: 45px;
+      transition: border-color 250ms ease;
+
+      @include respond($mobile) {
+        min-height: 100px;
+      }
+      @include respond(0, $mobile) {
+        padding: 17px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+
+      &.active {
+        color: $blue;
+      }
+
+      &.active,
+      &:hover {
+        @include respond($mobile) {
+          border-left: 10px solid $blue;
+        }
+        @include respond(0, $mobile) {
+          border-left: 5px solid $blue;
+        }
+      }
+    }
+  }
+}
+
+.table {
+  overflow-x: auto;
+
+  &.active {
+    display: block;
+  }
+
+  &:not(.active) {
+    display: none;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+    table-layout: fixed;
+  }
+
+  thead td {
+    text-align: center;
+    background: $blue;
+    color: $white;
+    padding: 26px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  tr {
+    &:nth-child(odd) {
+      background: #f2f2f2;
+    }
+
+    &:nth-child(even) {
+      background: #f9f9f9;
+    }
+  }
+
+  td {
+    border: 1px none #e4e4e4;
+    border-top-style: solid;
+
+    &:not(:last-child) {
+      border-right-style: solid;
+    }
+  }
+
+  tbody td {
+    padding: 16px 30px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+.full-height {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.description-block {
+  display: flex;
+  align-items: center;
+
+  @include respond(0, $mobile) {
+    flex-direction: column;
+  }
+}
+
+.price-info {
+
+  @include respond($mobile) {
+    height: 574px;
+  }
+  @include respond(0, $mobile) {
+    height: 400px;
+    background: $blue !important;
+  }
+  clip-path: polygon(0% 0%, 0 calc(100% - 30px), calc(50% - 20px) calc(100% - 30px), calc(50% + 20px) 100%, 100% 100%, 100% 30px, calc(50% + 20px) 30px, calc(50% - 20px) 0);
+
+  .column {
+    @include respond($mobile) {
+      width: 50%;
+    }
+
+    &:last-child {
+      @include respond(0, $mobile) {
+        display: none;
+      }
+    }
+  }
+
+  .image {
+    padding-left: 32px;
+    padding-top: 60px;
+    max-width: 100%;
+  }
+
+  .description-block {
+    margin-top: 32px;
+  }
+
+  .description {
+    @include respond($mobile) {
+      font-size: 24px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 17px;
+    }
+    line-height: 1.5;
+    color: $white;
+  }
+
+  .icon {
+    margin-right: 32px;
+    @include respond(0, $mobile) {
+      display: none;
+    }
+  }
+
+  .title {
+    @include respond($mobile) {
+      font-size: 38px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 24px;
+    }
+    color: $white;
+    font-weight: bold;
+    line-height: 1.369;
+    padding-left: 28px;
+    border-left: 5px solid $white;
+  }
+
+  &:after {
+    background: $blue;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+}
+
+[type="file"] {
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+  width: 10px;
+  height: 10px;
+  z-index: -1;
+}
+
+.form-columns {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  @include respond(0, $mobile) {
+    justify-content: center;
+  }
+
+  .column {
+
+    @include respond($mobile) {
+      width: 50%;
+    }
+
+    form {
+      background: $white;
+      box-shadow: 0 5px 55px 0 rgba(0, 0, 0, 0.15);
+      max-width: 520px;
+      min-height: 675px;
+
+      @include respond($mobile) {
+        margin-left: 52px;
+        padding: 50px 68px;
+      }
+      @include respond(0, $mobile) {
+        padding: 30px;
+      }
+
+      .title {
+        line-height: 1.8;
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .annotation {
+        @include respond($mobile) {
+          font-size: 18px;
+        }
+        @include respond(0, $mobile) {
+          font-size: 16px;
+        }
+        line-height: 1.65;
+        margin-top: 9px;
+        margin-bottom: 40px;
+      }
+    }
+
+    .form-bottom {
+      font-size: 14px;
+      color: $annotation-color;
+      text-align: center;
+      line-height: 1.286;
+      max-width: 235px;
+      margin: 15px auto 0 auto;
+    }
+
+    .elements {
+      button {
+        height: 70px;
+        text-transform: uppercase;
+        letter-spacing: .8px;
+      }
+
+      svg {
+        fill: $annotation-color;
+        margin: 0 20px;
+
+        @include respond(0, 500px) {
+          display: none;
+        }
+      }
+
+      label.input {
+        cursor: pointer;
+
+        span {
+          display: flex;
+          align-items: center;
+          height: 70px;
+        }
+      }
+
+      .shadow {
+        box-shadow: inset 3px 3px 9px 0 rgba(0, 0, 0, 0.05);
+        background: $input-bg;
+      }
+
+      .file {
+        background: #e9e7e7;
+      }
+
+      .input {
+        @include respond(0, 500px) {
+          padding: 0 15px;
+        }
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+      }
+
+      [type="text"],
+      [type="tel"] {
+        width: 100%;
+
+        &::placeholder {
+          color: $annotation-color;
+        }
+      }
+
+      input {
+        height: 70px;
+        background: transparent;
+        padding: 0;
+      }
+    }
+
+    &:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &:last-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+
+      @include respond(0, $mobile) {
+        display: none;
+      }
+
+      img {
+        transform: translate3d(40px, 30px, 0);
+      }
+    }
+  }
+}
+
+.price-form {
+  @include respond($mobile) {
+    height: 940px;
+  }
+  @include respond(0, $mobile) {
+    padding: 62px 0 31px 0;
+  }
+  margin-top: -30px;
+  background-size: 1500px;
 }
