@@ -51,9 +51,16 @@ form {
     outline: none;
   }
 
+  .h-200 {
+    min-height: 200px;
+  }
+
   textarea {
     resize: none;
-    min-height: 100px;
+
+    &:not(.h-200) {
+      min-height: 100px;
+    }
   }
 }
 
@@ -271,13 +278,47 @@ footer {
   height: 100%;
 }
 
+.main-slider_block {
+  @include respond(640px, 800px) {
+    margin-top: -145px;
+  }
+  @include respond(0, 640px) {
+    margin-top: -110px;
+  }
+
+  .swiper-slide {
+    @include respond(800px) {
+      min-height: 800px;
+    }
+    @include respond(0, 800px) {
+      min-height: 550px;
+      padding-top: 110px;
+      padding-bottom: 124px;
+      display: flex;
+    }
+  }
+}
+
 header {
-  position: relative;
+  &:not(.absolute) {
+    position: relative;
+  }
+
   overflow: hidden;
 
+  &.absolute {
+    @include respond(800px) {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: 2;
+    }
+  }
+
   .logo {
-    flex: 1;
-    margin-right: 30px;
+    margin-right: auto;
+    padding-right: 30px;
   }
 
   @include respond(640px) {
@@ -289,23 +330,27 @@ header {
   }
 
   @include respond($mobile) {
-    min-height: 355px;
+    &:not(.absolute) {
+      min-height: 355px;
+    }
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 1;
+  &:not(.absolute) {
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 1;
 
-    @include respond(0, $mobile) {
-      background: rgba(0, 0, 0, 0.55);
-    }
-    @include respond($mobile) {
-      background: rgba(0, 0, 0, 0.55);
+      @include respond(0, $mobile) {
+        background: rgba(0, 0, 0, 0.55);
+      }
+      @include respond($mobile) {
+        background: rgba(0, 0, 0, 0.55);
+      }
     }
   }
 }
@@ -316,15 +361,20 @@ header {
   }
 }
 
+header {
+  &:not(.absolute) {
+    .header-inner {
+      @include respond($mobile) {
+        margin-bottom: 78px;
+      }
+      @include respond(0, $mobile) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
 .header-inner {
-  @include respond($mobile) {
-    margin-bottom: 78px;
-  }
-
-  @include respond(0, $mobile) {
-    margin-bottom: 30px;
-  }
-
   z-index: 2;
   display: flex;
   justify-content: space-between;
@@ -406,11 +456,37 @@ button {
   cursor: pointer;
 }
 
+.fancy-hidden {
+  display: none;
+
+  .modal-title,
+  .title {
+    font-weight: bold;
+    font-size: 32px;
+    margin-bottom: 22px;
+    line-height: 1.2;
+  }
+
+  .text {
+    font-size: 19px;
+    max-width: 500px;
+    line-height: 1.4;
+
+    a {
+      color: $blue;
+    }
+  }
+}
+
 .button {
   padding: 0 10px;
   line-height: 1.3;
   width: 100%;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   transition: color 250ms ease, background 250ms ease, border 250ms ease;
 
   &-white {
@@ -449,10 +525,32 @@ button {
       border-color: $white;
     }
   }
+
+  &-submit_modal {
+    color: $white;
+    background: $blue;
+    border: 1px solid $white;
+    letter-spacing: 1px;
+    font-size: 16px;
+    text-transform: uppercase;
+
+    &:hover {
+      background: $white;
+      color: $blue;
+      border-color: $blue;
+    }
+  }
 }
 
 .form-policy {
-  color: $white;
+  &_black {
+    color: $black;
+  }
+
+  &_white {
+    color: $white;
+  }
+
   font-size: 14px;
   line-height: 1.2;
 
@@ -780,8 +878,43 @@ h2 {
   }
 }
 
+
+.boats {
+  position: absolute;
+  transform: translateY(-70px);
+  opacity: .25;
+  fill: $gray;
+  pointer-events: none;
+  user-select: none;
+  top: 81px;
+
+  @include respond(1640px) {
+    left: 191px;
+  }
+
+  @include respond($mobile, 1640px) {
+    left: -73px;
+  }
+
+  @include respond(0, 1366px) {
+    display: none;
+  }
+}
+
+.fancybox-content {
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  textarea {
+    border: 1px solid $blue;
+  }
+}
+
 .contact-form {;
-  background: $blue;
+
+  &_blue {
+    background: $blue;
+  }
 
   @include respond(0, $mobile) {
     padding: 36px 0;
@@ -836,7 +969,7 @@ h2 {
 
   .title {
     @include respond(0, $mobile) {
-      font-size: 32px;
+      font-size: 28px;
       margin-bottom: 5px;
     }
     @include respond($mobile) {
@@ -1218,9 +1351,7 @@ h2 {
 }
 
 .menu-opened {
-  @include respond(0, $mobile) {
-    overflow: hidden;
-  }
+  overflow: hidden;
 
   .menu {
     display: block;
@@ -1234,43 +1365,16 @@ h2 {
   right: 0;
   z-index: 10;
   display: none;
+  position: fixed;
+  overflow-y: auto;
+  padding-top: 60px;
+  padding-bottom: 55px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.38);
+  bottom: 0;
+}
 
-  @include respond(0, $mobile) {
-    position: fixed;
-    overflow-y: auto;
-    padding-top: 30px;
-    padding-bottom: 55px;
-    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.38);
-    bottom: 0;
-  }
-
-  @include respond($mobile) {
-    min-height: 770px;
-    position: absolute;
-    padding-top: 60px;
-    padding-bottom: 115px;
-    &:after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: calc(50% + 20px);
-      height: 40px;
-      right: 0;
-      background: $white;
-    }
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: calc(50% - 20px);
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 40px 40px 0;
-      border-color: transparent $white transparent transparent;
-    }
-  }
+.asphalt {
+  background: $section-bg;
 }
 
 .swiper-container {
@@ -1289,7 +1393,7 @@ h2 {
   }
 
   @include respond(0, $mobile) {
-    padding: 25px 0;
+    padding: 18px 0;
   }
 
   svg {
@@ -1387,10 +1491,13 @@ h2 {
   }
 
   .image {
+    display: block;
+
     img {
       max-width: 100%;
       width: 100%;
       height: auto;
+      display: block;
     }
   }
 
@@ -1415,7 +1522,7 @@ h2 {
     color: $annotation-color;
     line-height: 1.5;
     margin-top: 24px;
-    margin-bottom: 12px;
+    margin-bottom: 32px;
   }
 }
 
@@ -1482,15 +1589,11 @@ h2 {
   }
 }
 
-.work-slider {
-
-  .pagination {
-    display: flex;
-    position: relative;
-    z-index: 1;
-    transform: translateY(-35px);
-    flex-wrap: wrap;
-  }
+.pagination {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
 
   .swiper-pagination-bullet-active {
     background: $blue;
@@ -1516,6 +1619,12 @@ h2 {
     &:hover {
       background: $blue;
     }
+  }
+}
+
+.work-slider {
+  .pagination {
+    transform: translateY(-35px);
   }
 
   .swiper-slide {
@@ -1770,23 +1879,17 @@ input[type=number] {
 
 .news-grid {
   display: grid;
-
   @include respond($mobile) {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
   }
-
   @include respond(780px, $mobile) {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
   }
   @include respond(540px, 780px) {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
   }
   @include respond(0, 540px) {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
   }
 
   @include respond(1110px) {
@@ -2027,6 +2130,7 @@ input[type=number] {
       margin: 15px 0;
     }
     max-width: 100%;
+    height: auto;
   }
 
   .title {
@@ -2226,7 +2330,61 @@ input[type=number] {
   }
 }
 
+.clip-bg {
+  clip-path: polygon(0% 0%, 0 calc(100% - 30px), calc(50% - 20px) calc(100% - 30px), calc(50% + 20px) 100%, 100% 100%, 100% 30px, calc(50% + 20px) 30px, calc(50% - 20px) 0);
+}
+
+.small-heading {
+  @include respond($mobile) {
+    font-size: 24px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 20px;
+  }
+  color: $white;
+  line-height: 1.5;
+  padding-left: 24px;
+  border-left: 4px solid $white;
+}
+
+.heading {
+  @include respond($mobile) {
+    font-size: 38px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 24px;
+  }
+  font-weight: bold;
+  line-height: 1.369;
+  padding-left: 28px;
+
+  &:not(.heading-blue):not(.heading-black) {
+    border-left: 5px solid $white;
+    color: $white;
+  }
+
+  &.heading-blue {
+    color: $blue;
+    border-left: 5px solid $blue;
+  }
+
+  &.heading-black {
+    color: $black;
+    font-weight: 400;
+    border-left: 3px solid $blue;
+
+    @include respond($mobile) {
+      font-size: 24px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 20px;
+    }
+  }
+}
+
 .price-info {
+
+  @extend .clip-bg;
 
   @include respond($mobile) {
     height: 574px;
@@ -2235,7 +2393,6 @@ input[type=number] {
     height: 400px;
     background: $blue !important;
   }
-  clip-path: polygon(0% 0%, 0 calc(100% - 30px), calc(50% - 20px) calc(100% - 30px), calc(50% + 20px) 100%, 100% 100%, 100% 30px, calc(50% + 20px) 30px, calc(50% - 20px) 0);
 
   .column {
     @include respond($mobile) {
@@ -2253,10 +2410,16 @@ input[type=number] {
     padding-left: 32px;
     padding-top: 60px;
     max-width: 100%;
+    width: 100%;
+    height: auto;
   }
 
   .description-block {
     margin-top: 32px;
+  }
+
+  .title {
+    @extend .heading;
   }
 
   .description {
@@ -2275,20 +2438,6 @@ input[type=number] {
     @include respond(0, $mobile) {
       display: none;
     }
-  }
-
-  .title {
-    @include respond($mobile) {
-      font-size: 38px;
-    }
-    @include respond(0, $mobile) {
-      font-size: 24px;
-    }
-    color: $white;
-    font-weight: bold;
-    line-height: 1.369;
-    padding-left: 28px;
-    border-left: 5px solid $white;
   }
 
   &:after {
@@ -2457,6 +2606,10 @@ input[type=number] {
   }
 }
 
+.overflow-block {
+  position: relative;
+}
+
 .price-form {
   @include respond($mobile) {
     height: 940px;
@@ -2466,4 +2619,1606 @@ input[type=number] {
   }
   margin-top: -30px;
   background-size: 1500px;
+}
+
+.column-inner {
+  max-width: 612px;
+}
+
+.about-slider {
+  padding-bottom: 30px;
+
+  @include respond(0, 1180px) {
+    padding-top: 30px;
+  }
+  @include respond(1180px) {
+    padding-top: 121px;
+    padding-left: 67px;
+  }
+
+  .swiper-slide {
+    width: 441px;
+    outline: none;
+    transition: box-shadow 250ms ease;
+
+    img {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    a {
+      display: block;
+      outline: none;
+    }
+
+    &:hover {
+      @include respond(1180px) {
+        box-shadow: 0 0 59px 0 rgba(0, 10, 16, 0.2);
+      }
+    }
+  }
+
+  .pagination {
+    margin-top: 30px;
+  }
+}
+
+.about-logo {
+  @include respond($mobile) {
+    margin-bottom: 32px;
+  }
+  @include respond(0, $mobile) {
+    margin-bottom: 14px;
+  }
+  max-width: 100%;
+  height: auto;
+}
+
+.about-container {
+  @include respond($mobile) {
+    padding-top: 80px;
+    padding-bottom: 110px;
+  }
+  @include respond(0, $mobile) {
+    padding-top: 40px;
+  }
+  display: flex;
+
+  @include respond(0, 1180px) {
+    flex-direction: column;
+  }
+
+  .column {
+
+    &:last-child {
+      @include respond(1180px) {
+        position: absolute;
+        right: 0;
+        left: calc(50% + 76px);
+        top: 0;
+      }
+    }
+
+    &:first-child {
+      p {
+        @include respond($mobile) {
+          font-size: 18px;
+        }
+        @include respond(0, $mobile) {
+          font-size: 16px;
+        }
+        line-height: 1.667;
+      }
+    }
+  }
+}
+
+.mission {
+  background: $blue;
+
+  @include respond($mobile) {
+    height: 596px;
+  }
+  @include respond(0, $mobile) {
+    padding: 80px 0;
+  }
+
+  .heading {
+    @include respond($mobile) {
+      height: 90px;
+    }
+    display: flex;
+    align-items: center;
+  }
+
+  .columns {
+    line-height: 1.667;
+    color: $white;
+    @include respond($mobile) {
+      font-size: 18px;
+      margin-top: 50px;
+      justify-content: space-between;
+      display: flex;
+    }
+    @include respond(0, $mobile) {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .column {
+      @include respond($mobile) {
+        max-width: 450px;
+        width: 100%;
+      }
+    }
+  }
+
+  .mission-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include respond($mobile) {
+      transform: translateY(-62px);
+    }
+  }
+
+  .mission-inner,
+  .container,
+  .column {
+    height: 100%;
+  }
+
+  @extend .clip-bg;
+}
+
+.no-touch {
+  .partners {
+    .swiper-slide {
+      &:hover {
+        box-shadow: 0 4px 42.5px 7.5px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.documents {
+
+  @include respond($mobile) {
+    min-height: 940px;
+  }
+  @include respond(0, $mobile) {
+    padding: 78px 0;
+  }
+  margin-top: -36px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  .pagination {
+    margin-top: 70px;
+  }
+
+  .swiper-container {
+    overflow: visible;
+  }
+
+  .title {
+    @include respond($mobile) {
+      font-size: 28px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 19px;
+    }
+    font-weight: bold;
+    line-height: 1.286;
+    margin-top: 40px;
+  }
+
+  .description {
+    @include respond($mobile) {
+      font-size: 21px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 16px;
+    }
+    line-height: 1.55;
+    font-weight: 500;
+    margin-top: 14px;
+  }
+
+  .ext {
+    width: 60px;
+    height: 60px;
+    box-shadow: inset 0 0 0 1px $blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: $blue;
+  }
+
+  a {
+    text-decoration: none;
+    color: $black;
+  }
+
+  .swiper-slide {
+    min-height: 445px;
+    box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.15), inset 0 -5px 0 0 $blue;
+    transition: box-shadow 250ms ease, background;
+    background: $white;
+    display: flex;
+
+    @include respond($mobile) {
+      padding: 30px;
+    }
+    @include respond(0, $mobile) {
+      padding: 20px;
+    }
+
+    &:hover {
+      background: $blue;
+      box-shadow: 0 17px 29px 0 rgba(63, 166, 223, 0.15), 0 4px 50px 0 rgba(0, 0, 0, 0.15);
+
+      .wrapper {
+        display: none;
+      }
+
+      .image {
+        display: block;
+        margin: auto;
+      }
+    }
+
+    .image {
+      display: none;
+      max-width: 100%;
+    }
+  }
+
+  .document-top {
+    @include respond(0, $mobile) {
+      margin-bottom: 45px;
+      *:first-child {
+        margin-bottom: 15px;
+      }
+    }
+    @include respond($mobile) {
+      display: flex;
+      align-items: center;
+      margin-bottom: 110px;
+    }
+
+    *:first-child {
+      margin-right: 90px;
+    }
+  }
+
+  .swiper-slide {
+    outline: none;
+  }
+
+  .heading {
+    max-width: 500px;
+    line-height: 1.56;
+    display: flex;
+    align-items: center;
+    @include respond($mobile) {
+      height: 90px;
+    }
+  }
+}
+
+.about-form {
+  margin-top: -30px;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+
+  @include respond(0, $mobile) {
+    padding-top: 50px;
+  }
+
+  .small-heading {
+    @include respond(0, $mobile) {
+      margin: 40px 0;
+    }
+  }
+}
+
+.partners {
+  overflow: hidden;
+
+  @extend .clip-bg;
+
+  @include respond($mobile) {
+    height: 745px;
+    background: url(../images/partners-bg.webp) no-repeat center / cover;
+  }
+  @include respond(0, $mobile) {
+    padding: 50px 0 60px 0;
+    background: #f9f9f9;
+  }
+  margin-top: -30px;
+  display: flex;
+  align-items: center;
+
+  .heading {
+    display: flex;
+    align-items: center;
+    @include respond($mobile) {
+      height: 90px;
+    }
+  }
+
+  .swiper-slide {
+    background: $white;
+    height: 160px;
+    transition: box-shadow 250ms ease;
+    box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pagination {
+    @include respond($mobile) {
+      margin-top: 60px;
+    }
+    @include respond(0, $mobile) {
+      margin-top: 35px;
+    }
+  }
+
+  .swiper-container {
+    overflow: visible;
+    @include respond($mobile) {
+      margin-top: 100px;
+    }
+    @include respond(0, $mobile) {
+      margin-top: 30px;
+    }
+  }
+
+  .heading {
+    color: $blue;
+    border-left-color: $blue;
+  }
+}
+
+.catalog-filter {
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  ul,
+  li {
+    list-style: none;
+  }
+
+  a {
+    color: $black;
+    font-size: 15px;
+    text-decoration: none;
+    line-height: 1.2;
+    display: block;
+  }
+
+  > ul > li {
+    &:not(:last-child) {
+      border-bottom: 1px solid #eee;
+    }
+  }
+
+  .fj {
+    position: relative;
+
+    button {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      background: transparent;
+      width: 60px;
+      justify-content: center;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    a {
+      flex: 1;
+    }
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  button svg {
+    transition: fill 250ms ease;
+  }
+
+  > ul > li .fj a:hover + button svg {
+    fill: $white;
+  }
+
+  > ul > li .fj a {
+    padding-right: 56px !important;
+  }
+
+  .fj svg {
+    transition: transform 250ms ease;
+  }
+
+  .fj:not(.active) svg {
+    transform: rotate(180deg);
+  }
+
+  .fj.active svg {
+    transform: rotate(0);
+  }
+
+  > ul > li .fj a,
+  > ul > li > a {
+    padding: 14px 30px;
+    transition: background 250ms ease, color 250ms ease;
+
+    &:hover {
+      background: $blue;
+      color: $white;
+    }
+  }
+
+  > ul li ul a.active {
+    color: $blue !important;
+    background: $white !important;
+  }
+
+  > ul > li > div > a.active + button svg {
+    fill: $white !important;
+  }
+
+  > ul > li > div > a.active,
+  > ul > li > a.active {
+    background: $blue !important;
+    color: $white !important;
+  }
+
+  > ul li ul {
+    border-top: 1px solid #eee;
+    padding: 10px 0;
+    display: none;
+  }
+
+  > ul li ul a {
+    transition: color 250ms ease;
+
+    @include respond(880px) {
+      padding: 4px 10px 4px 50px;
+    }
+    @include respond(0, 880px) {
+      padding: 8px 10px 8px 50px;
+    }
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+.order-button:disabled {
+  background: #bcbcbc !important;
+  color: $white !important;
+  border-color: #bcbcbc !important;
+  cursor: not-allowed !important;
+}
+
+.catalog-wrapper {
+  flex: 1;
+
+  .catalog-grid {
+    display: grid;
+    grid-gap: 25px;
+
+    @include respond(1160px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @include respond(880px, 1160px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include respond(780px, 880px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @include respond(500px, 780px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .title {
+    font-size: 16px;
+    font-weight: 500;
+    color: $blue;
+    line-height: 1.2;
+  }
+
+  .price {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 12px 0;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .available {
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #bcbcbc;
+    line-height: 1.25;
+    padding: 9px;
+    text-align: center;
+    border: 1px solid #bcbcbc;
+  }
+
+  .order-button {
+    height: 35px;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  .annotation {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #bcbcbc;
+    line-height: 1.667;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: $white;
+    box-shadow: 0 0 20px 0 rgba(164, 164, 164, 0.1);
+    transition: box-shadow 250ms ease;
+
+    &:hover {
+      box-shadow: 0 0 19px 1px rgba(102, 102, 102, 0.2);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .content {
+      padding: 20px;
+      flex: 1;
+    }
+  }
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  height: 50px;
+  border: 1px solid $blue;
+  margin-bottom: 24px;
+
+  button {
+    min-width: 50px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background: $blue;
+    justify-content: center;
+
+    svg {
+      fill: $white;
+    }
+  }
+
+  input {
+    width: 100%;
+    outline: none;
+    border: none;
+    height: 100%;
+    font-size: 14px;
+
+    @include respond(660px) {
+      padding: 0 28px;
+    }
+    @include respond(0, 660px) {
+      padding: 0 14px;
+    }
+
+    &::placeholder {
+      color: #bcbcbc;
+    }
+  }
+}
+
+.catalog-block {
+  @include respond(880px) {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 80px;
+  }
+  @include respond(0, 880px) {
+    padding-bottom: 30px;
+  }
+}
+
+.catalog-filter {
+  border: 1px solid #eee;
+  background: $white;
+  width: 100%;
+
+  @include respond(880px) {
+    max-width: 280px;
+  }
+  @include respond(0, 880px) {
+    margin-bottom: 20px;
+  }
+
+  @include respond(1160px) {
+    margin-right: 58px;
+  }
+  @include respond(880px, 1160px) {
+    margin-right: 25px;
+  }
+}
+
+.calc {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  button {
+    background: transparent;
+    padding: 0;
+    outline: none;
+    border: none;
+  }
+
+  .cnt {
+    padding: 0 7px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    min-width: 32px;
+  }
+
+  .order-price {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .text {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+
+    b {
+      font-weight: normal;
+      color: #bcbcbc;
+      display: inline-block;
+      margin-right: 4px;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    padding-right: 8px;
+  }
+
+  .buttons svg {
+    display: block;
+  }
+}
+
+.main-slider_block {
+  .swiper-wrapper {
+    z-index: 0;
+  }
+
+  .swiper-slide {
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+      pointer-events: none;
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+  }
+}
+
+.header-wrapper {
+  //clip-path: polygon(0% 0%, 0 calc(100% - 30px), calc(50% - 20px) calc(100% - 30px), calc(50% + 20px) 100%, 100% 100%, 100% 0, calc(50% + 20px) 0, calc(50% - 20px) 0);
+
+  .button-blue {
+    max-width: 250px;
+    height: 60px;
+    text-transform: uppercase;
+    margin-top: 40px;
+  }
+
+  .swiper-slide {
+    .container {
+      @include respond(0, 800px) {
+        position: relative;
+      }
+      @include respond(800px) {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+      display: flex;
+      z-index: 2;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .description {
+      border-left: 4px solid $blue;
+      padding-left: 20px;
+      @include respond($mobile) {
+        font-size: 21px;
+      }
+      @include respond(0, $mobile) {
+        font-size: 18px;
+      }
+      line-height: 1.5;
+      color: $white;
+      max-width: 300px;
+    }
+
+    .title {
+      font-weight: bold;
+      line-height: 1.3;
+      max-width: 735px;
+      color: $white;
+      margin-bottom: 38px;
+
+      @include respond($mobile) {
+        font-size: 42px;
+      }
+      @include respond(0, $mobile) {
+        font-size: 24px;
+      }
+    }
+  }
+
+}
+
+.advantages-top {
+  @include respond($mobile) {
+    display: flex;
+  }
+
+  .heading-2 {
+    @include respond(0, $mobile) {
+      margin-top: 25px;
+      min-height: 80px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      padding-right: 8px;
+    }
+  }
+}
+
+.advantages-grid {
+  display: grid;
+
+  @include respond($mobile) {
+    margin-top: 90px;
+  }
+  @include respond(0, $mobile) {
+    margin-top: 20px;
+  }
+
+  @include respond(550px) {
+    grid-template-columns: repeat(auto-fit, minmax(290px, auto));
+  }
+  grid-column-gap: 40px;
+  grid-row-gap: 30px;
+
+  .card {
+    background: $white;
+    min-height: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 0 59px 0 rgba(0, 10, 16, 0.2);
+
+    @include respond($mobile) {
+      padding: 45px;
+    }
+    @include respond(0, $mobile) {
+      padding: 25px;
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 1.625;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .icon {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    svg {
+      fill: $blue;
+    }
+  }
+}
+
+.advantages {
+  @extend .clip-bg;
+  position: relative;
+  z-index: 3;
+  background: url(../images/advantages.jpg) no-repeat center / cover;
+  @include respond($mobile) {
+    padding: 90px 0 130px 0;
+    margin-top: -30px;
+  }
+  @include respond(0, $mobile) {
+    padding: 66px 0 50px 0;
+    margin-top: -45px;
+  }
+
+  .heading {
+    max-width: 350px;
+    margin-right: 55px;
+  }
+
+  .heading-2 {
+    @include respond($mobile) {
+      font-size: 21px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 18px;
+    }
+    color: $white;
+    border-left: 4px solid $white;
+    display: flex;
+    align-items: center;
+    line-height: 1.667;
+    padding-left: 28px;
+    max-width: 390px;
+    background: transparentize($white, .8);
+  }
+}
+
+.main-pagination {
+  @include respond(800px) {
+    position: absolute;
+  }
+  @include respond(0, 800px) {
+    transform: translateY(-85px);
+  }
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 6;
+  bottom: 130px;
+  right: 0;
+  left: 0;
+  justify-content: center;
+
+  .swiper-pagination-bullet-active {
+    background: $white;
+  }
+
+  .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+    background: transparent;
+  }
+
+  .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    border: 1px solid $white;
+
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+  }
+}
+
+.blue-bg {
+  background: $blue;
+  margin-top: -30px;
+}
+
+.about-wrapper {
+  @extend .clip-bg;
+  background: $white;
+  padding: 65px 0;
+
+  .button {
+    max-width: 220px;
+    height: 60px;
+    text-transform: uppercase;
+  }
+
+  .columns {
+
+    @include respond($mobile) {
+      display: flex;
+    }
+
+    .column {
+      flex: 1;
+
+      &:first-child {
+        max-width: 590px;
+      }
+
+      &:last-child {
+        padding-left: 30px;
+
+        img {
+          @include respond(0, $mobile) {
+            display: none;
+          }
+          max-width: 100%;
+          display: block;
+        }
+      }
+    }
+  }
+
+  .heading {
+    @include respond($mobile) {
+      min-height: 90px;
+    }
+    @include respond(0, $mobile) {
+      min-height: 50px;
+    }
+    display: flex;
+    align-items: center;
+  }
+
+  .text {
+    @include respond($mobile) {
+      margin-top: 74px;
+      margin-bottom: 50px;
+    }
+    @include respond(0, $mobile) {
+      margin-top: 35px;
+      margin-bottom: 30px;
+    }
+  }
+
+  .text p,
+  .text {
+    @include respond($mobile) {
+      font-size: 18px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 16px;
+    }
+    line-height: 1.556;
+  }
+}
+
+.online {
+  position: relative;
+  min-height: 840px;
+  background: $blue;
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  @extend .clip-bg;
+  margin-top: -30px;
+
+  .online-inner {
+    display: flex;
+    align-items: center;
+
+    @include respond(0, 1366px) {
+      flex-direction: column;
+
+      .online-form {
+        margin-top: 45px;
+      }
+    }
+
+    .column:last-child {
+      max-width: 600px;
+      width: 100%;
+    }
+  }
+
+  .title {
+    @include respond(1366px) {
+      font-size: 54px;
+    }
+    line-height: 1.4;
+    @include respond(730px, 1366px) {
+      font-size: 38px;
+    }
+    @include respond(0, 730px) {
+      font-size: 32px;
+    }
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 35px;
+    padding-right: 30px;
+  }
+
+  .small-heading {
+    max-width: 316px;
+  }
+}
+
+.online-form {
+  width: 100%;
+
+  @include respond($mobile) {
+    padding: 70px 50px;
+  }
+  @include respond(0, $mobile) {
+    padding: 20px;
+  }
+  position: relative;
+  z-index: 1;
+  background: $white;
+  box-shadow: 0 5px 50px 0 rgba(0, 0, 0, 0.3);
+
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+
+    @include respond(0, 740px) {
+      flex-direction: column;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+
+    .form-column {
+      @include respond(0, 740px) {
+        &:not(:last-child) {
+          margin-bottom: 25px;
+        }
+      }
+      @include respond(740px) {
+        max-width: calc(50% - 17px);
+      }
+
+      width: 100%;
+    }
+  }
+
+  select {
+    padding: 0 15px;
+    outline: none;
+  }
+
+  button {
+    height: 73px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    letter-spacing: 1px;
+  }
+
+  .input {
+    display: flex;
+    align-items: center;
+    background: $white;
+
+    svg {
+      @include respond(0, 730px) {
+        display: none;
+      }
+      fill: #bcbcbc;
+      margin: 0 22px;
+      min-width: 22px;
+    }
+  }
+
+  .shadow {
+    box-shadow: inset 3px 3px 9px 0 transparentize($black, .95);
+
+    input {
+      padding: 0;
+      @include respond(0, 730px) {
+        padding: 0 18px;
+      }
+    }
+
+    select,
+    input {
+      outline: none;
+      border: none;
+      background: transparent;
+      height: 70px;
+      width: 100%;
+    }
+  }
+
+  label {
+    font-size: 18px;
+    margin-bottom: 14px;
+    display: inline-block;
+  }
+}
+
+.we {
+  .advantages-top {
+    align-items: center;
+  }
+
+  margin-top: -25px;
+  min-height: 500px;
+  padding: 80px 0 140px 0;
+  background: $white;
+
+  @extend .clip-bg;
+
+  .heading {
+    margin-right: 55px;
+    display: flex;
+    align-items: center;
+    @include respond($mobile) {
+      min-height: 90px;
+    }
+  }
+
+  .heading-2 {
+    max-width: 440px;
+    @include respond($mobile) {
+      font-size: 21px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 18px;
+    }
+    min-height: 90px;
+    color: $black;
+    border-left: 3px solid $blue;
+    display: flex;
+    align-items: center;
+    line-height: 1.667;
+    padding-left: 28px;
+    @include respond(0, $mobile) {
+      margin-top: 25px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      padding-right: 8px;
+    }
+  }
+}
+
+.we-grid {
+  display: grid;
+
+  @include respond(1170px) {
+    margin-top: 90px;
+    grid-gap: 65px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @include respond(700px, 1170px) {
+    grid-gap: 25px;
+    margin-top: 40px;
+    grid-template-columns: 1fr 1fr;
+  }
+  @include respond(0, 700px) {
+    grid-gap: 25px;
+    margin-top: 40px;
+    grid-template-columns: 1fr;
+  }
+
+  .top {
+    flex: 1;
+    opacity: 0;
+    color: $black;
+
+    li {
+      margin-bottom: 13px;
+    }
+
+    svg {
+      fill: $blue;
+      transform: translateY(2px);
+      margin-right: 11px;
+    }
+  }
+
+  .bottom {
+    margin-bottom: 25px;
+    @include respond($mobile) {
+      font-size: 26px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 21px;
+      margin-top: 20px;
+    }
+    color: $white;
+    line-height: 1.308;
+    max-width: 240px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul,
+  li {
+    list-style: none;
+  }
+
+  .content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .item {
+    position: relative;
+    @include respond(0, 700px) {
+      padding: 15px;
+    }
+    @include respond(700px) {
+      min-height: 440px;
+      padding: 30px;
+    }
+    transition: box-shadow 240ms ease;
+
+    &:active,
+    &:hover {
+      &:after {
+        background: transparentize($white, .1);
+      }
+
+      .bottom {
+        color: $black;
+      }
+
+      .top {
+        opacity: 1;
+      }
+
+      box-shadow: 0 17px 29px 0 rgba(63, 166, 223, 0.3), 0 4px 50px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      z-index: 1;
+      background: linear-gradient(180deg, transparentize($white, 1) 28%, transparentize($black, .1) 90%);
+    }
+
+    img {
+      display: block;
+    }
+
+    border-bottom: 4px solid $blue;
+  }
+}
+
+.other-services {
+  min-height: 400px;
+  padding: 70px 0;
+  background: $white;
+  margin-top: -25px;
+  @extend .clip-bg;
+
+  .serv-grid {
+    display: grid;
+
+    @include respond($mobile) {
+      margin-top: 100px;
+      margin-bottom: 140px;
+      grid-gap: 70px;
+    }
+
+    @include respond(0, 600px) {
+      grid-template-columns: 1fr;
+    }
+    @include respond(600px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include respond(0, $mobile) {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      grid-gap: 30px;
+    }
+
+    .title {
+      line-height: 1.5;
+      color: $white;
+      margin-top: auto;
+      position: relative;
+      z-index: 3;
+
+      @include respond($mobile) {
+        margin-bottom: 65px;
+        font-size: 26px;
+      }
+      @include respond(0, $mobile) {
+        margin-top: 50px;
+        font-size: 22px;
+      }
+    }
+
+    .item {
+      @include respond($mobile) {
+        min-height: 444px;
+        padding: 30px;
+      }
+      @include respond(0, $mobile) {
+        padding: 20px;
+      }
+      display: flex;
+      border-bottom: 4px solid $blue;
+      flex-direction: column;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        z-index: 1;
+        background: linear-gradient(180deg, transparentize($white, 1) 28%, transparentize($black, .1) 90%);
+      }
+    }
+  }
+
+}
+
+.calc {
+  background: url(../images/temp.jpg) no-repeat center / cover;
+  display: flex;
+  align-items: center;
+  @extend .clip-bg;
+  margin-top: -30px;
+
+  @include respond($mobile) {
+    min-height: 750px;
+  }
+  @include respond(0, $mobile) {
+    padding: 74px 0;
+  }
+
+  .button {
+    max-width: 250px;
+    height: 60px;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 35px;
+    margin-top: 55px;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+
+    @include respond(0, $mobile) {
+      flex-direction: column;
+    }
+  }
+
+  .item:first-child {
+    max-width: 589px;
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.loyal {
+  margin-top: -30px;
+  @include respond($mobile) {
+    min-height: 740px;
+  }
+  @include respond(0, $mobile) {
+    padding: 70px 0;
+  }
+  display: flex;
+  align-items: center;
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .numbers-block {
+    margin: 50px 0;
+    color: $blue;
+  }
+
+  .button {
+    text-transform: uppercase;
+    max-width: 250px;
+    height: 60px;
+  }
+
+  .numbers {
+    display: flex;
+    align-items: center;
+  }
+
+  .number {
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 18px;
+  }
+
+  .title {
+    line-height: 1.3;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .item:first-child {
+    max-width: 490px;
+    width: 100%;
+  }
+
+  .short {
+    font-size: 18px;
+    margin-top: 40px;
+    line-height: 1.5;
+  }
+
+  .heading {
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+  }
+
+  img {
+    max-width: 100%;
+
+    @include respond($mobile) {
+      transform: translateY(50px);
+    }
+  }
+
+  .container {
+    display: flex;
+
+    @include respond(0, $mobile) {
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+.map-wrapper {
+  height: 500px;
+  position: relative;
+
+  .title {
+    font-size: 34px;
+    font-weight: bold;
+    color: $blue;
+  }
+
+  .button {
+    max-width: 100%;
+    height: 60px;
+    margin-top: auto;
+    text-transform: uppercase;
+  }
+
+  .phone {
+    margin-bottom: 8px;
+
+    a {
+      font-size: 18px;
+      text-decoration: none;
+      color: $black;
+    }
+  }
+
+  .sea {
+    color: #a5c4d5;
+    font-size: 14px;
+    margin-top: 22px;
+    margin-bottom: 6px;
+  }
+
+  .map-block {
+    @include respond($mobile) {
+      padding: 38px;
+      max-width: 375px;
+    }
+    @include respond(0, $mobile) {
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    @include respond($mobile) {
+      height: 375px;
+    }
+    z-index: 2;
+    box-shadow: 0 17px 29px 0 rgba(63, 166, 223, 0.3), 0 5px 50px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .container {
+    @include respond($mobile) {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      align-items: center;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+#mini-map {
+  width: 100%;
+  @include respond($mobile) {
+    height: 500px;
+  }
+  @include respond(0, $mobile) {
+    height: 300px;
+  }
 }

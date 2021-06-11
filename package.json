@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "scp": "scp -r .\\app\\css .\\app\\js studioatom_gals@studioatom.beget.tech:wp-content/themes/sibgals/"
   },
   "repository": {
     "type": "git",

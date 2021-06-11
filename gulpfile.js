@@ -7,6 +7,8 @@ let paths = {
     scripts: {
         src: [
             'node_modules/jquery/dist/jquery.min.js',
+            baseDir + '/js/swiper.min.js',
+            baseDir + '/js/fancybox.min.js',
             baseDir + '/js/masked.min.js',
             baseDir + '/js/app.js'
         ],
@@ -16,6 +18,8 @@ let paths = {
     styles: {
         src: [
             'node_modules/normalize.css/normalize.css',
+            baseDir + '/' + preprocessor + '/swiper.scss',
+            baseDir + '/' + preprocessor + '/fancybox.scss',
             baseDir + '/' + preprocessor + '/app.*'
         ],
         dest: baseDir + '/css',

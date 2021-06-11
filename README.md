@@ -7,5 +7,6 @@
 - [Новости](https://iserejatoje.github.io/sibgals/news.html)
 - [Карточка новости](https://iserejatoje.github.io/sibgals/news-detail.html)
 - [Цены](https://iserejatoje.github.io/sibgals/price.html)
+- [Главное](https://iserejatoje.github.io/sibgals/index.html)
 
 Made by Atom Web Studio ❤️2021
