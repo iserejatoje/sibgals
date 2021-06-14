@@ -1,5 +1,5 @@
 let $train = $('.train'),
-    mapDelay = 1200,
+    mapDelay = 1600,
     trainDistance = 200;
 
 $('[type="tel"]').mask('+7 (000) 000-00-00');
@@ -98,7 +98,7 @@ function initMainSlider() {
                 delay: 8000,
                 disableOnInteraction: true,
             },
-            speed: 1800,
+            speed: 1000,
             slidersPerView: 1,
             pagination: {
                 el: ".main-slider .main-pagination",
@@ -363,8 +363,8 @@ $(window).scroll(function () {
 });
 
 function scrollTo(offset, speed) {
-    // speed = speed || 500;
-    // $('body, html').animate({'scrollTop': offset}, speed);
+    speed = speed || 500;
+    $('body, html').animate({'scrollTop': offset}, speed);
 }
 
 function trainInit() {

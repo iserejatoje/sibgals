@@ -3183,6 +3183,13 @@ input[type=number] {
         .price-block .price-tabs a.active, .price-block .price-tabs a:hover {
           border-left: 5px solid #4cb3ec; } }
 
+.we-index table {
+  margin-top: 60px; }
+
+@media only all and (min-width: 0) and (max-width: 1023px) {
+  .we-index .heading-blue {
+    margin-bottom: 20px; } }
+
 .table {
   overflow-x: auto; }
   .table.active {
@@ -3227,7 +3234,7 @@ input[type=number] {
     .description-block {
       flex-direction: column; } }
 
-.clip-bg, .price-info, .mission, .partners, .advantages, .about-wrapper, .online, .we, .other-services, .calc {
+.clip-bg:not(.no-clip), .price-info:not(.no-clip), .mission:not(.no-clip), .partners:not(.no-clip), .advantages:not(.no-clip), .about-wrapper:not(.no-clip), .online:not(.no-clip), .we:not(.no-clip), .other-services:not(.no-clip), .calc:not(.no-clip) {
   clip-path: polygon(0% 0%, 0 calc(100% - 30px), calc(50% - 20px) calc(100% - 30px), calc(50% + 20px) 100%, 100% 100%, 100% 30px, calc(50% + 20px) 30px, calc(50% - 20px) 0); }
 
 .small-heading {
@@ -3269,58 +3276,84 @@ input[type=number] {
       .heading.heading-black, .price-info .heading-black.title {
         font-size: 20px; } }
 
-@media only all and (min-width: 1024px) {
-  .price-info {
-    height: 574px; } }
+.index-block {
+  margin-top: -30px; }
+  .index-block .title {
+    max-width: 350px; }
+  .index-block .column1 {
+    margin-right: auto; }
+  .index-block .column2 {
+    width: 100%; }
+    @media only all and (min-width: 1070px) {
+      .index-block .column2 {
+        max-width: 670px; } }
+  @media only all and (min-width: 0) and (max-width: 1069px) {
+    .index-block {
+      height: auto;
+      padding: 60px 0; } }
+  @media only all and (min-width: 0) and (max-width: 1069px) {
+    .index-block .container {
+      flex-direction: column; } }
 
-@media only all and (min-width: 0) and (max-width: 1023px) {
-  .price-info {
-    height: 400px;
-    background: #4cb3ec !important; } }
+.steps-grid {
+  display: grid;
+  grid-gap: 30px; }
+  @media only all and (min-width: 720px) {
+    .steps-grid {
+      grid-template-columns: 1fr 1fr; } }
+  @media only all and (min-width: 0) and (max-width: 719px) {
+    .steps-grid {
+      grid-template-columns: 1fr;
+      margin-top: 25px; } }
+  .steps-grid .item {
+    background: #fff;
+    padding: 45px 25px; }
+  .steps-grid .head {
+    font-size: 18px;
+    color: #4cb3ec;
+    font-weight: bold;
+    margin-bottom: 6px; }
+  .steps-grid .text {
+    font-size: 16px;
+    line-height: 1.444; }
 
-@media only all and (min-width: 1024px) {
-  .price-info .column {
-    width: 50%; } }
-
-@media only all and (min-width: 0) and (max-width: 1023px) {
-  .price-info .column:last-child {
-    display: none; } }
-
-.price-info .image {
-  padding-left: 32px;
-  padding-top: 60px;
-  max-width: 100%;
-  width: 100%;
-  height: auto; }
-
-.price-info .description-block {
-  margin-top: 32px; }
-
-.price-info .description {
-  line-height: 1.5;
-  color: #fff; }
+.price-info {
+  background: url(../images/price-blue-bg.jpg) no-repeat center/cover; }
   @media only all and (min-width: 1024px) {
-    .price-info .description {
-      font-size: 24px; } }
+    .price-info {
+      height: 574px; } }
   @media only all and (min-width: 0) and (max-width: 1023px) {
-    .price-info .description {
-      font-size: 17px; } }
-
-.price-info .icon {
-  margin-right: 32px; }
+    .price-info:not(.index-block) {
+      height: 400px;
+      background: #4cb3ec !important; } }
+  @media only all and (min-width: 1024px) {
+    .price-info .column {
+      width: 50%; } }
   @media only all and (min-width: 0) and (max-width: 1023px) {
-    .price-info .icon {
+    .price-info .column:last-child {
       display: none; } }
-
-.price-info:after {
-  background: #4cb3ec;
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 1; }
+  .price-info .image {
+    padding-left: 32px;
+    padding-top: 60px;
+    max-width: 100%;
+    width: 100%;
+    height: auto; }
+  .price-info .description-block {
+    margin-top: 32px; }
+  .price-info .description {
+    line-height: 1.5;
+    color: #fff; }
+    @media only all and (min-width: 1024px) {
+      .price-info .description {
+        font-size: 24px; } }
+    @media only all and (min-width: 0) and (max-width: 1023px) {
+      .price-info .description {
+        font-size: 17px; } }
+  .price-info .icon {
+    margin-right: 32px; }
+    @media only all and (min-width: 0) and (max-width: 1023px) {
+      .price-info .icon {
+        display: none; } }
 
 [type="file"] {
   opacity: 0;
@@ -3354,7 +3387,7 @@ input[type=number] {
       .form-columns .column form {
         padding: 30px; } }
     .form-columns .column form .title {
-      line-height: 1.8;
+      line-height: 1.65;
       font-size: 24px;
       font-weight: bold;
       text-transform: uppercase; }
@@ -3426,7 +3459,7 @@ input[type=number] {
     @media only all and (min-width: 0) and (max-width: 1023px) {
       .form-columns .column:last-child {
         display: none; } }
-    .form-columns .column:last-child img {
+    .form-columns .column:last-child img:not(.nt) {
       transform: translate3d(40px, 30px, 0); }
 
 .overflow-block {
@@ -3440,7 +3473,7 @@ input[type=number] {
       height: 940px; } }
   @media only all and (min-width: 0) and (max-width: 1023px) {
     .price-form {
-      padding: 62px 0 31px 0; } }
+      padding: 72px 0 61px 0; } }
 
 .column-inner {
   max-width: 612px; }
@@ -3510,11 +3543,16 @@ input[type=number] {
       .about-container .column:first-child p {
         font-size: 16px; } }
 
+.index-mission {
+  margin-top: -30px; }
+
 .mission {
   background: #4cb3ec; }
   @media only all and (min-width: 1024px) {
-    .mission {
-      height: 596px; } }
+    .mission:not(.no-clip) {
+      height: 596px; }
+    .mission.no-clip {
+      height: 680px; } }
   @media only all and (min-width: 0) and (max-width: 1023px) {
     .mission {
       padding: 80px 0; } }
@@ -3524,19 +3562,28 @@ input[type=number] {
     @media only all and (min-width: 1024px) {
       .mission .heading, .mission .price-info .title, .price-info .mission .title {
         height: 90px; } }
+  @media only all and (min-width: 1024px) {
+    .mission .text {
+      margin-top: 50px; } }
+  .mission .text,
+  .mission p {
+    color: #fff;
+    line-height: 1.667; }
+    @media only all and (min-width: 1024px) {
+      .mission .text,
+      .mission p {
+        font-size: 18px; } }
+    @media only all and (min-width: 0) and (max-width: 1023px) {
+      .mission .text,
+      .mission p {
+        margin-top: 10px;
+        font-size: 16px; } }
   .mission .columns {
-    line-height: 1.667;
     color: #fff; }
     @media only all and (min-width: 1024px) {
       .mission .columns {
-        font-size: 18px;
-        margin-top: 50px;
         justify-content: space-between;
         display: flex; } }
-    @media only all and (min-width: 0) and (max-width: 1023px) {
-      .mission .columns {
-        margin-top: 10px;
-        font-size: 16px; } }
     @media only all and (min-width: 1024px) {
       .mission .columns .column {
         max-width: 450px;
@@ -3546,9 +3593,6 @@ input[type=number] {
     display: flex;
     flex-direction: column;
     justify-content: center; }
-    @media only all and (min-width: 1024px) {
-      .mission .mission-inner {
-        transform: translateY(-62px); } }
   .mission .mission-inner,
   .mission .container,
   .mission .column {
@@ -4094,15 +4138,22 @@ input[type=number] {
 
 .advantages {
   position: relative;
-  z-index: 3;
-  background: url(../images/advantages.jpg) no-repeat center/cover; }
+  z-index: 3; }
+  .advantages:not(.index-advantages) {
+    background: url(../images/advantages.jpg) no-repeat center/cover; }
+  .advantages.index-advantages {
+    background: url(../images/index-advantages.jpg) no-repeat center/cover; }
+    .advantages.index-advantages .heading-2 {
+      border-color: #4cb3ec;
+      color: #0c1b24;
+      background: rgba(249, 249, 249, 0.7); }
   @media only all and (min-width: 1024px) {
     .advantages {
       padding: 90px 0 130px 0;
       margin-top: -30px; } }
   @media only all and (min-width: 0) and (max-width: 1023px) {
     .advantages {
-      padding: 66px 0 50px 0;
+      padding: 65px 0;
       margin-top: -45px; } }
   .advantages .heading, .advantages .price-info .title, .price-info .advantages .title {
     max-width: 350px;
@@ -4169,6 +4220,7 @@ input[type=number] {
     .about-wrapper .columns .column:last-child {
       padding-left: 30px; }
       .about-wrapper .columns .column:last-child img {
+        height: auto;
         max-width: 100%;
         display: block; }
         @media only all and (min-width: 0) and (max-width: 1023px) {
@@ -4513,9 +4565,11 @@ input[type=number] {
     max-width: 589px;
     width: 100%; }
   .calc img {
-    max-width: 100%; }
+    max-width: 100%;
+    height: auto; }
 
 .loyal {
+  background: #fff;
   margin-top: -30px;
   display: flex;
   align-items: center; }
@@ -4559,7 +4613,8 @@ input[type=number] {
     display: flex;
     align-items: center; }
   .loyal img {
-    max-width: 100%; }
+    max-width: 100%;
+    height: auto; }
     @media only all and (min-width: 1024px) {
       .loyal img {
         transform: translateY(50px); } }
@@ -4629,3 +4684,29 @@ input[type=number] {
   @media only all and (min-width: 0) and (max-width: 1023px) {
     #mini-map {
       height: 300px; } }
+
+.categories-grid {
+  display: grid;
+  grid-gap: 50px; }
+
+.categories {
+  padding: 65px 0;
+  min-height: 710px;
+  display: flex;
+  align-items: center;
+  margin-top: -30px;
+  background: #fff;
+  position: relative;
+  z-index: 2; }
+  .categories .text {
+    margin: 50px 0;
+    line-height: 1.667;
+    font-size: 18px; }
+  .categories .wrap {
+    max-width: 600px;
+    width: 100%;
+    padding-right: 100px; }
+  .categories .button {
+    max-width: 250px;
+    height: 60px;
+    text-transform: uppercase; }

@@ -2262,6 +2262,18 @@ input[type=number] {
   }
 }
 
+.we-index {
+  table {
+    margin-top: 60px;
+  }
+
+  .heading-blue {
+    @include respond(0, $mobile) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
 .table {
   overflow-x: auto;
 
@@ -2331,7 +2343,9 @@ input[type=number] {
 }
 
 .clip-bg {
-  clip-path: polygon(0% 0%, 0 calc(100% - 30px), calc(50% - 20px) calc(100% - 30px), calc(50% + 20px) 100%, 100% 100%, 100% 30px, calc(50% + 20px) 30px, calc(50% - 20px) 0);
+  &:not(.no-clip) {
+    clip-path: polygon(0% 0%, 0 calc(100% - 30px), calc(50% - 20px) calc(100% - 30px), calc(50% + 20px) 100%, 100% 100%, 100% 30px, calc(50% + 20px) 30px, calc(50% - 20px) 0);
+  }
 }
 
 .small-heading {
@@ -2382,7 +2396,66 @@ input[type=number] {
   }
 }
 
+.index-block {
+  margin-top: -30px;
+  .title {
+    max-width: 350px;
+  }
+
+  .column1 {
+    margin-right: auto;
+  }
+
+  .column2 {
+    @include respond(1070px) {
+      max-width: 670px;
+    }
+    width: 100%;
+  }
+  @include respond(0, 1070px) {
+    height: auto;
+    padding: 60px 0;
+  }
+  .container {
+    @include respond(0, 1070px) {
+      flex-direction: column;
+    }
+  }
+
+}
+
+.steps-grid {
+  display: grid;
+  @include respond(720px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include respond(0, 720px) {
+    grid-template-columns: 1fr;
+    margin-top: 25px;
+  }
+
+  grid-gap: 30px;
+
+  .item {
+    background: $white;
+    padding: 45px 25px;
+  }
+
+  .head {
+    font-size: 18px;
+    color: $blue;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  .text {
+    font-size: 16px;
+    line-height: 1.444;
+  }
+}
+
 .price-info {
+  background: url(../images/price-blue-bg.jpg) no-repeat center / cover;
 
   @extend .clip-bg;
 
@@ -2390,8 +2463,10 @@ input[type=number] {
     height: 574px;
   }
   @include respond(0, $mobile) {
-    height: 400px;
-    background: $blue !important;
+    &:not(.index-block) {
+      height: 400px;
+      background: $blue !important;
+    }
   }
 
   .column {
@@ -2440,16 +2515,6 @@ input[type=number] {
     }
   }
 
-  &:after {
-    background: $blue;
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 1;
-  }
 }
 
 [type="file"] {
@@ -2492,7 +2557,7 @@ input[type=number] {
       }
 
       .title {
-        line-height: 1.8;
+        line-height: 1.65;
         font-size: 24px;
         font-weight: bold;
         text-transform: uppercase;
@@ -2600,7 +2665,9 @@ input[type=number] {
       }
 
       img {
-        transform: translate3d(40px, 30px, 0);
+        &:not(.nt) {
+          transform: translate3d(40px, 30px, 0);
+        }
       }
     }
   }
@@ -2615,7 +2682,7 @@ input[type=number] {
     height: 940px;
   }
   @include respond(0, $mobile) {
-    padding: 62px 0 31px 0;
+    padding: 72px 0 61px 0;
   }
   margin-top: -30px;
   background-size: 1500px;
@@ -2716,11 +2783,20 @@ input[type=number] {
   }
 }
 
+.index-mission {
+  margin-top: -30px;
+}
+
 .mission {
   background: $blue;
 
   @include respond($mobile) {
-    height: 596px;
+    &:not(.no-clip) {
+      height: 596px;
+    }
+    &.no-clip {
+      height: 680px;
+    }
   }
   @include respond(0, $mobile) {
     padding: 80px 0;
@@ -2734,18 +2810,30 @@ input[type=number] {
     align-items: center;
   }
 
-  .columns {
-    line-height: 1.667;
+  .text {
+    @include respond($mobile) {
+      margin-top: 50px;
+    }
+  }
+
+  .text,
+  p {
     color: $white;
+    line-height: 1.667;
     @include respond($mobile) {
       font-size: 18px;
-      margin-top: 50px;
-      justify-content: space-between;
-      display: flex;
     }
     @include respond(0, $mobile) {
       margin-top: 10px;
       font-size: 16px;
+    }
+  }
+
+  .columns {
+    color: $white;
+    @include respond($mobile) {
+      justify-content: space-between;
+      display: flex;
     }
 
     .column {
@@ -2761,10 +2849,6 @@ input[type=number] {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    @include respond($mobile) {
-      transform: translateY(-62px);
-    }
   }
 
   .mission-inner,
@@ -3502,13 +3586,27 @@ input[type=number] {
   @extend .clip-bg;
   position: relative;
   z-index: 3;
-  background: url(../images/advantages.jpg) no-repeat center / cover;
+
+  &:not(.index-advantages) {
+    background: url(../images/advantages.jpg) no-repeat center / cover;
+  }
+
+  &.index-advantages {
+    background: url(../images/index-advantages.jpg) no-repeat center / cover;
+
+    .heading-2 {
+      border-color: $blue;
+      color: $black;
+      background: transparentize(#f9f9f9, .3);
+    }
+  }
+
   @include respond($mobile) {
     padding: 90px 0 130px 0;
     margin-top: -30px;
   }
   @include respond(0, $mobile) {
-    padding: 66px 0 50px 0;
+    padding: 65px 0;
     margin-top: -45px;
   }
 
@@ -3605,6 +3703,7 @@ input[type=number] {
           @include respond(0, $mobile) {
             display: none;
           }
+          height: auto;
           max-width: 100%;
           display: block;
         }
@@ -4063,10 +4162,12 @@ input[type=number] {
 
   img {
     max-width: 100%;
+    height: auto;
   }
 }
 
 .loyal {
+  background: $white;
   margin-top: -30px;
   @include respond($mobile) {
     min-height: 740px;
@@ -4130,6 +4231,7 @@ input[type=number] {
 
   img {
     max-width: 100%;
+    height: auto;
 
     @include respond($mobile) {
       transform: translateY(50px);
@@ -4220,5 +4322,39 @@ input[type=number] {
   }
   @include respond(0, $mobile) {
     height: 300px;
+  }
+}
+
+.categories-grid {
+  display: grid;
+  grid-gap: 50px;
+}
+
+.categories {
+  padding: 65px 0;
+  min-height: 710px;
+  display: flex;
+  align-items: center;
+  margin-top: -30px;
+  background: $white;
+  position: relative;
+  z-index: 2;
+
+  .text {
+    margin: 50px 0;
+    line-height: 1.667;
+    font-size: 18px;
+  }
+
+  .wrap {
+    max-width: 600px;
+    width: 100%;
+    padding-right: 100px;
+  }
+
+  .button {
+    max-width: 250px;
+    height: 60px;
+    text-transform: uppercase;
   }
 }
